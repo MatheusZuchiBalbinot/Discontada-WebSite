@@ -6,7 +6,10 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-    <script src='main.js'></script>
+    <script src='script.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
     
 </head>
 <body>
@@ -35,9 +38,9 @@
             </div>
 
             <div class="header_n3">
-                <span class="material-symbols-outlined"> Home </span>
-                <span class="material-symbols-outlined"> Login </span>
-                <span class="material-symbols-outlined"> Shopping_cart </span>
+                <span class="material-symbols-outlined" onclick="window.location ='C:/Users/User/Desktop/Projetos de Programação/Projeto_01/main.html'"> Home </span>
+                <span class="material-symbols-outlined" onclick="window.location ='C:/Users/User/Desktop/Projetos de Programação/Projeto_01/login.html'"> Login </span>
+                <span class="material-symbols-outlined" onclick="window.location ='C:/Users/User/Desktop/Projetos de Programação/Projeto_01/cart.html'"> Shopping_cart </span>
             </div>
             
         </header>
@@ -47,30 +50,52 @@
         <div class="main">
 
 
-            <div class="card", style="width: 150px; height: 200px; background-color: red; padding: 1.3rem; margin: 2rem; position: relative;">
-                <img src="Images/periferico_1.jpg" alt="Avatar" style="width:100%">
-                <h5> Item 1 </h5>
-                <a> R$ 200,00 reais</a>
-                <br>
-                <h11> 12x de 19,99</h11>
+            <div class="slider">
+
+                <div class="slide">
+
+                    <span class="material-symbols-outlined" id="previous_button" onclick="navigation_slider_previous()"> chevron_left </span>
+                    <span class="material-symbols-outlined" id="next_button" onclick="navigation_slider_next()"> chevron_right </span>
+                    
+                    <div id="slider_image">
+
+                    </div>
+                </div>
+
             </div>
 
-            <div class="card2", style="width: 150px; height: 200px; border: 1px solid gray; border-radius: 0.2rem; margin: 2rem; display: flexbox; position: relative;">
-                <img src="Images/periferico_2.jpg" alt="Avatar" style="width:100%;">
-                <h5> Item 2 </h5>
-                <a> R$ 200,00 reais</a>
-                <br>
-                <h11> 12x de 19,99</h11>
-            </div>
+            <h1 id="promotions_title"> Promoções mais quentes </h1>
+            <div class="promotions">
 
-            <div class="card3", style="width: 150px; height: 200px; background-color: red; margin: 2rem; display: flexbox; position: relative; ">
-                <img src="Images/periferico_1.jpg" alt="Avatar" style="width:100%;">
-                <h5> Item 3 </h5>
-                <a> R$ 200,00 reais</a>
-                <br>
-                <h11> 12x de 19,99</h11>
-            </div>
+                <div class="card", style="width: 200px; height: 250px; background-color: red; margin: 2rem;">
+                    <h3 style="padding: 0.7rem; text-align: center; background-color: green; color: white;"> 23% DE DESCONTO </h3>
+                    <img src="Images/periferico_1.jpg" alt="Avatar" style="width:100%">
+                    <h5> Item 1 </h5>
+                    <a> R$ 200,00 reais</a>
+                    <br>
+                    <h11> 12x de 19,99</h11>
+                    
+                </div>
+    
+                <div id="card2", style="width: 200px; height: 250px; border: 1px solid gray; border-radius: 0.2rem; margin: 2rem;">
+                    <h3 style="padding: 0.7rem; text-align: center; background-color: green; color: white;"> 17% DE DESCONTO </h3>
+                    <img src="Images/periferico_2.jpg" alt="Avatar" style="width:100%;">
+                    <h5> Item 2 </h5>
+                    <a> R$ 200,00 reais</a>
+                    <br>
+                    <h11> 12x de 19,99</h11>
+                </div>
+    
+                <div class="card3", style="width: 200px; height: 250px; background-color: red; margin: 2rem;">
+                    <h3 style="padding: 0.7rem; text-align: center; background-color: green; color: white;"> 25% DE DESCONTO </h3>
+                    <img src="Images/periferico_1.jpg" alt="Avatar" style="width:100%;">
+                    <h5> Item 3 </h5>
+                    <a> R$ 200,00 reais</a>
+                    <br>
+                    <h11> 12x de 19,99</h11>
+                </div>
 
+            </div>
 
         </div>  
 
@@ -123,5 +148,7 @@
 </body>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
 
 </html>

@@ -90,12 +90,76 @@ header {
 
 .main {
     grid-area: main;
-    display: flex;
+    display: grid;
+    grid-template-areas: 
+        "slider",
+        "promotions",
+        "",
+        "";
+    grid-template-rows: auto;
 }
 
-    #card {
-        
+    .slider {
+        height: 500px;
+        width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        display: flex;
+        align-items: center;
     }
+
+        .slide {
+            position: relative;
+            align-items: center;
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+            .slide > #next_button, #previous_button {
+                position: absolute;
+                cursor: pointer;
+                font-size: 4rem;
+                background-color: white(228, 215, 215);
+                color: red;
+                border-radius: 50%;
+
+            }
+
+            .slide > #next_button:hover, #previous_button:hover {
+                background-color: rgb(240, 215, 215);
+            }
+            
+            .slide > #next_button {
+            margin-left: 952px;
+            }
+
+
+                #slider_image img {
+                    margin: 0 auto;
+                    height: 400px;
+                    width: 1000px;
+                }
+
+
+    body > div > div > h1 {
+        font-size: 3rem;
+        padding: 2rem;
+        font-family: 'Montserrat', sans-serif; 
+    }
+
+    body > div > div > div.promotions > div.card, div.card2, div.card3 {
+        border-radius: 0.5rem;
+    }
+
+
+
+    .promotions {
+        position: relative;
+        display: flex;
+
+    }
+
 
 footer {
     grid-area: footer;
