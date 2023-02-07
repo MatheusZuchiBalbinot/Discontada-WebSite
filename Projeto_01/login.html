@@ -6,7 +6,6 @@
     <title> Página de Login </title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='login.css'>
-    <script src='main.js'></script>
 
 </head>
 <body>
@@ -17,19 +16,22 @@
             <div class="image">
                 <img src="Images/Logotipo(black mode).png">    
             </div>
-            <form class="login_inputs">
+            <form class="login_inputs" action="login_validation.php" method="POST">
                 <h1> Login </h1>
+
                 <label for="login" class="lgn_label"> Login: </label>
                 <br>
-                <input type="text" class="lgn_button" placeholder="Digite o seu Login: ">
+                <input type="text" class="lgn_button" placeholder="Digite o seu Login: " name="login">
+
                 <br>
                 <label for="password" class="lgn_label"> Senha: </label>
                 <br>
-                <input type="password" class="lgn_button" placeholder="Digite a sua senha: ">
+                <input type="password" class="lgn_button" placeholder="Digite a sua senha: " name="password">
                 <br>
-                <input type="submit" value="Submit">
 
-                <input type="button" value="Não possui conta?" onclick="window.location ='C:/Users/User/Desktop/Projetos de Programação/Projeto_01/register.html'">
+                <input type="submit" value="Submit" name="submit" id="submit" >
+
+                <input type="button" value="Não possui conta?" onClick="location.href='register.php'">
             </form>
         </div>
     </div>

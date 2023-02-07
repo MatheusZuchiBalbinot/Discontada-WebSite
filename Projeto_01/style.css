@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-style: monospace;
-    font-size: 12px;
 }
 
 .container {
@@ -38,6 +37,7 @@ header {
         width: auto;
         height: auto;
         border-radius: 1.5rem;
+        cursor: pointer;
     }
 
     .header_n2 {
@@ -73,8 +73,20 @@ header {
             border: none;
         }
 
+    body > div > header > div.header_n3 {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    body > div > header > div.header_n3 i {
+        color: gray;
+    }
+
     .header_n3 span {
-        font-size: 3.2rem;
+        font-size: 2rem;
         padding: 1.5rem;
         margin-top: 1.2rem;
         cursor: pointer;
