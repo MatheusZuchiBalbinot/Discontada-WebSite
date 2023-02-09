@@ -106,7 +106,7 @@ header {
     grid-template-areas: 
         "slider",
         "promotions",
-        "",
+        "best_sellers",
         "";
     grid-template-rows: auto;
 }
@@ -160,15 +160,10 @@ header {
         font-family: 'Montserrat', sans-serif; 
     }
 
-    body > div > div > div.promotions > div.card, div.card2, div.card3 {
-        border-radius: 0.5rem;
-    }
-
-
-
-    .promotions {
+    #promotions, #best_sellers {
         position: relative;
         display: flex;
+        flex: none;
 
     }
 
