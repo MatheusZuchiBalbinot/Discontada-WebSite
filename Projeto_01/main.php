@@ -43,7 +43,7 @@
                 <div class="search_box">
                     <!-- <span class="material-symbols-outlined" id="search_button" onclick=''> Search </span> -->
                     
-                    <form action='' method="get" onChange='search()'>
+                    <form action='' method="get" onclick='search()'>
                         <div class="search_bar"> 
 
                             <input type="text" id="search_bar_input" placeholder= "O que você deseja? ">

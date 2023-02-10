@@ -37,11 +37,10 @@ window.onload = function () {
 
 
 // Função que consome os dados do arquivo json, adiciona e exibe os cards individualmente. 
-
+    
 
 async function card_items() {
     let obj;
-
     const res = await fetch('http://localhost/Projeto_01/items.json');
     obj = await res.json();
 
@@ -123,9 +122,26 @@ async function card_items() {
 }
 card_items();
 
-function search() {
-    var search_value = document.getElementById('search_bar_input').value;
-    console.log(search_value);
-}
 
-search();
+
+async function search() {
+
+    let obj;
+    const res = await fetch('http://localhost/Projeto_01/items.json');
+    obj = await res.json();
+
+    const search_input = document.querySelector('#search_bar_input');
+    search_input.addEventListener("input", (e) => {
+        let value = e.target.value.toLowerCase();
+        console.log(value);
+    });
+
+    for(let i = 0; i <= obj.length; i++) {
+
+        var result = obj[i].name;
+        console.log(i, result);
+
+        if(result === search_input.value) {
+            console.log('Ok');
+        }
+}};
