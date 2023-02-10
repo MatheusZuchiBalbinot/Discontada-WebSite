@@ -41,13 +41,16 @@
 
             <div class="header_n2">
                 <div class="search_box">
+                    <!-- <span class="material-symbols-outlined" id="search_button" onclick=''> Search </span> -->
+                    
+                    <form action='' method="get" onChange='search()'>
+                        <div class="search_bar"> 
 
-                    <span class="material-symbols-outlined" id="search_button"> Search </span>
+                            <input type="text" id="search_bar_input" placeholder= "O que você deseja? ">
+                            <button type='button'> submit </button> 
+                        </div>
+                    </form>
 
-                    <div class="search_bar"> 
-
-                        <input type="text" class="search_bar_input" placeholder= "O que você deseja? ">
-                    </div>
                 </div>
                 
             </div>

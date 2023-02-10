@@ -29,17 +29,15 @@ function navigation_slider_next() {
         }
     }
 }
-
-
 setInterval(navigation_slider_next, 5000)
 
 window.onload = function () {
     navigation_slider_previous();
 }
 
-// fetch('http://localhost/Projeto_01/items.json')
-//     .then((response) => response.json())
-//     .then((json) => obj = json);
+
+// Função que consome os dados do arquivo json, adiciona e exibe os cards individualmente. 
+
 
 async function card_items() {
     let obj;
@@ -48,36 +46,23 @@ async function card_items() {
     obj = await res.json();
 
     const itemsDiv_promotions = document.getElementById("promotions");
-    const itemsDivcontents_best_sellers = document.getElementById("best_sellers");
     const contents_promotions = [];
-    const contents_best_sellers = [];
 
-    obj_promotions = obj.sort((a, b) => {
-        if (a.discount_percent > b.discount_percent) {
-            return -1;
-        }
-        });
-        // console.log(obj_promotions)
-
-    obj_best_sellers = obj.sort((a, b) => {
-        if (a.discount_percent > b.discount_percent) {
-            return -1;
-        }
-        });
-        // console.log(obj_best_sellers)
 
     for(let i = 0; i < 10; i++) {
+            
+        obj_promotions = obj.sort((a, b) => {
+            if (a.discount_percent > b.discount_percent) {
+                return -1;
+            }
+        });
+        
         let name_promotions = obj_promotions[i].name;
         let image_promotions = obj_promotions[i].image;
         let oldPrice_promotions = obj_promotions[i].oldPrice;
         let price_promotions = obj_promotions[i].price;
         let discount_percent_promotions = obj_promotions[i].discount_percent;
-
-        let name_best_sellers = obj_best_sellers[i].name;
-        let image_best_sellers = obj_best_sellers[i].image;
-        let oldPrice_best_sellers = obj_best_sellers[i].oldPrice;
-        let price_best_sellers = obj_best_sellers[i].price;
-        let discount_percent_best_sellers = obj_best_sellers[i].discount_percent;
+        let sales_promotions = obj_promotions[i].sales;
         
         contents_promotions.push(
             `
@@ -88,10 +73,34 @@ async function card_items() {
             <a> De: R$ ` + oldPrice_promotions + ` reais</a>
             <br>
             <a> Por: R$ ` + price_promotions + ` reais</a>
+            <br>
+            <a> Vendidos: ` + sales_promotions + `</a>
         </div>
         
         `
         );
+
+        itemsDiv_promotions.innerHTML = contents_promotions.join('\n');
+          
+    }
+
+    const itemsDivcontents_best_sellers = document.getElementById("best_sellers");
+    const contents_best_sellers = [];
+
+    for(let i = 0; i < 10; i++) {
+        
+        obj_best_sellers = obj.sort((a, b) => {
+            if (a.sales > b.sales) {
+                return -1;
+            }
+        });
+
+        let name_best_sellers = obj_best_sellers[i].name;
+        let image_best_sellers = obj_best_sellers[i].image;
+        let oldPrice_best_sellers = obj_best_sellers[i].oldPrice;
+        let price_best_sellers = obj_best_sellers[i].price;
+        let discount_percent_best_sellers = obj_best_sellers[i].discount_percent;
+        let sales_best_sellers = obj_best_sellers[i].sales;
 
         contents_best_sellers.push(
             `
@@ -102,15 +111,21 @@ async function card_items() {
             <a> De: R$ ` + oldPrice_best_sellers + ` reais</a>
             <br>
             <a> Por: R$ ` + price_best_sellers + ` reais</a>
+            <br>
+            <a> Vendidos: ` + sales_best_sellers + `</a>
         </div>
         
         `
         );
 
-          itemsDiv_promotions.innerHTML = contents_promotions.join('\n');
-          itemsDivcontents_best_sellers.innerHTML = contents_best_sellers.join('\n');
-
-        
+        itemsDivcontents_best_sellers.innerHTML = contents_best_sellers.join('\n');
     }
 }
 card_items();
+
+function search() {
+    var search_value = document.getElementById('search_bar_input').value;
+    console.log(search_value);
+}
+
+search();

@@ -49,6 +49,7 @@ header {
         
         .search_box {
             position: relative;
+            justify-content: end;
             display: flex;
         }
         
@@ -64,7 +65,7 @@ header {
             margin-left: 10px;
         }
 
-        .search_bar_input {
+        #search_bar_input {
             width: 35vw; 
 	        height: 6.5vh;
             cursor: pointer;
@@ -104,9 +105,9 @@ header {
     grid-area: main;
     display: grid;
     grid-template-areas: 
-        "slider",
-        "promotions",
-        "best_sellers",
+        ". slider .",
+        ". promotions .",
+        ". best_sellers .",
         "";
     grid-template-rows: auto;
 }
@@ -135,7 +136,7 @@ header {
                 background-color: white(228, 215, 215);
                 color: red;
                 border-radius: 50%;
-
+                justify-content: space-between;
             }
 
             .slide > #next_button:hover, #previous_button:hover {
@@ -143,7 +144,7 @@ header {
             }
             
             .slide > #next_button {
-            margin-left: 952px;
+            margin-left: 936px;
             }
 
 
@@ -163,6 +164,8 @@ header {
     #promotions, #best_sellers {
         position: relative;
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         flex: none;
 
     }

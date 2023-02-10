@@ -5,7 +5,8 @@
       "price": 249.99,
       "oldPrice": 349.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/94313731.jpg",
-      "discount_percent": 28
+      "discount_percent": 28,
+      "sales": 324
     },
     {
       "id": "94313762",
@@ -13,7 +14,8 @@
       "price": 249.99,
       "oldPrice": 349.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/94313762.jpg",
-      "discount_percent": 28
+      "discount_percent": 28,
+      "sales": 329
     },
     
     { 
@@ -22,7 +24,8 @@
       "price": 249.99,
       "oldPrice": 349.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/943137XQ.jpg",
-      "discount_percent": 28
+      "discount_percent": 28,
+      "sales": 128
     },
     {
       "id": "95077714",
@@ -30,7 +33,8 @@
       "price": 199.99,
       "oldPrice": 279.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95077714.jpg",
-      "discount_percent": 28
+      "discount_percent": 28,
+      "sales": 531
     },
     {
       "id": "9507779N",
@@ -38,7 +42,8 @@
       "price": 199.99,
       "oldPrice": 279.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/9507779N.jpg",
-      "discount_percent": 28
+      "discount_percent": 28,
+      "sales": 157
     },
     {
       "id": "92601102",
@@ -46,7 +51,8 @@
       "price": 449.99,
       "oldPrice": 559.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/92601102.jpg",
-      "discount_percent": 28
+      "discount_percent": 28,
+      "sales": 198
     },
     {
       "id": "9465450R",
@@ -54,7 +60,8 @@
       "price": 279.99,
       "oldPrice": 399.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/9465450R.jpg",
-      "discount_percent": 30
+      "discount_percent": 30,
+      "sales": 232
     },
     {
       "id": "95004531",
@@ -62,7 +69,8 @@
       "price": 299.99,
       "oldPrice": 449.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95004531.jpg",
-      "discount_percent": 33
+      "discount_percent": 33,
+      "sales": 670
     },
     {
       "id": "94672705",
@@ -70,7 +78,8 @@
       "price": 179.99,
       "oldPrice": 229.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/94672705.jpg",
-      "discount_percent": 21
+      "discount_percent": 21,
+      "sales": 621
     },
     {
       "id": "92456602",
@@ -78,7 +87,8 @@
       "price": 179.99,
       "oldPrice": 209.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/92456602.jpg",
-      "discount_percent": 14
+      "discount_percent": 14,
+      "sales": 598
     },
     {
       "id": "94461431",
@@ -86,7 +96,8 @@
       "price": 279.99,
       "oldPrice": 374.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/94461431.jpg",
-      "discount_percent": 25
+      "discount_percent": 25,
+      "sales": 374
     },
     {
       "id": "95850662",
@@ -94,7 +105,8 @@
       "price": 199.99,
       "oldPrice": 279.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95850662.jpg",
-      "discount_percent": 28
+      "discount_percent": 28,
+      "sales": 487
     },
     {
       "id": "943137X8",
@@ -102,7 +114,8 @@
       "price": 249.99,
       "oldPrice": 349.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/943137X8.jpg",
-      "discount_percent": 28
+      "discount_percent": 28,
+      "sales": 126
     },
     {
       "id": "93227802",
@@ -110,7 +123,8 @@
       "price": 159.99,
       "oldPrice": 189.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/93227802.jpg",
-      "discount_percent": 15
+      "discount_percent": 15,
+      "sales": 135
     },
     {
       "id": "93828502",
@@ -118,7 +132,8 @@
       "price": 139.99,
       "oldPrice": 179.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/93828502.jpg",
-      "discount_percent": 22
+      "discount_percent": 22,
+      "sales": 123
     },
     
     {
@@ -127,7 +142,8 @@
       "price": 199.99,
       "oldPrice": 259.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95150929.jpg",
-      "discount_percent": 23
+      "discount_percent": 23,
+      "sales": 632
     },
     {
       "id": "95870805",
@@ -135,7 +151,8 @@
       "price": 299.99,
       "oldPrice": 399.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95870805.jpg",
-      "discount_percent": 25
+      "discount_percent": 25,
+      "sales": 532
     },
     {
       "id": "95707805",
@@ -143,7 +160,8 @@
       "price": 1299.99,
       "oldPrice": 1499.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95707805.jpg",
-      "discount_percent": 13
+      "discount_percent": 13,
+      "sales": 24
     },
     {
       "id": "94672719",
@@ -151,7 +169,8 @@
       "price": 179.99,
       "oldPrice": 229.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/94672719.jpg",
-      "discount_percent": 21
+      "discount_percent": 21,
+      "sales": 331
     },
     {
       "id": "95876431",
@@ -159,7 +178,8 @@
       "price": 299.99,
       "oldPrice": 379.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95876431.jpg",
-      "discount_percent": 21
+      "discount_percent": 21,
+      "sales": 224
     },
    
     {
@@ -168,7 +188,8 @@
       "price": 1299.99,
       "oldPrice": 1499.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95707845.jpg",
-      "discount_percent": 13
+      "discount_percent": 13,
+      "sales": 21
     },
     {
       "id": "946545OX",
@@ -176,7 +197,8 @@
       "price": 279.99,
       "oldPrice": 399.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/946545OX.jpg",
-      "discount_percent": 30
+      "discount_percent": 30,
+      "sales": 443
     },
     {
       "id": "9465450M",
@@ -184,7 +206,8 @@
       "price": 279.99,
       "oldPrice": 399.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/9465450M.jpg",
-      "discount_percent": 20
+      "discount_percent": 20,
+      "sales": 404
     },
     {
       "id": "95939145",
@@ -192,7 +215,8 @@
       "price": 199.99,
       "oldPrice": 249.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95939145.jpg",
-      "discount_percent": 13
+      "discount_percent": 13,
+      "sales": 535
     },
     {
       "id": "95326905",
@@ -200,7 +224,8 @@
       "price": 259.99,
       "oldPrice": 299.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95326905.jpg",
-      "discount_percent": 23
+      "discount_percent": 23,
+      "sales": 565
     },
     {
       "id": "951509X8",
@@ -208,7 +233,8 @@
       "price": 199.99,
       "oldPrice": 259.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/951509X8.jpg",
-      "discount_percent": 23
+      "discount_percent": 23,
+      "sales": 586
     },
     {
       "id": "9515093X",
@@ -216,7 +242,8 @@
       "price": 199.99,
       "oldPrice": 259.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/9515093X.jpg",
-      "discount_percent": 23
+      "discount_percent": 23,
+      "sales": 436
     },
     {
       "id": "9590484W",
@@ -224,7 +251,8 @@
       "price": 229.99,
       "oldPrice": 329.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/9590484W.jpg",
-      "discount_percent": 30
+      "discount_percent": 30,
+      "sales": 512
     },
     {
       "id": "943137D0",
@@ -232,7 +260,8 @@
       "price": 249.99,
       "oldPrice": 349.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/943137D0.jpg",
-      "discount_percent": 28
+      "discount_percent": 28,
+      "sales": 514
     },
     {
       "id": "9465459P",
@@ -240,7 +269,8 @@
       "price": 279.99,
       "oldPrice": 399.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/9465459P.jpg",
-      "discount_percent": 30
+      "discount_percent": 30,
+      "sales": 495
     },
     {
       "id": "94218131",
@@ -248,7 +278,8 @@
       "price": 199.99,
       "oldPrice": 299.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/94218131.jpg",
-      "discount_percent": 33
+      "discount_percent": 33,
+      "sales": 529
     },
     {
       "id": "95707858",
@@ -256,7 +287,8 @@
       "price": 1299.99,
       "oldPrice": 1499.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95707858.jpg",
-      "discount_percent": 13
+      "discount_percent": 13,
+      "sales": 31
     },
     {
       "id": "94876962",
@@ -264,7 +296,8 @@
       "price": 179.99,
       "oldPrice": 249.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/94876962.jpg",
-      "discount_percent": 28
+      "discount_percent": 28,
+      "sales": 363
     },
     {
       "id": "94313703",
@@ -272,7 +305,8 @@
       "price": 249.99,
       "oldPrice": 349.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/94313703.jpg",
-      "discount_percent": 28
+      "discount_percent": 28,
+      "sales": 252
     },
     
     {
@@ -281,7 +315,8 @@
       "price": 449.99,
       "oldPrice": 649.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/93761902.jpg",
-      "discount_percent": 30
+      "discount_percent": 30,
+      "sales": 137
     },
     {
       "id": "95150919",
@@ -289,6 +324,7 @@
       "price": 199.99,
       "oldPrice": 259.99,
       "image": "https://imgcentauro-a.akamaihd.net/230x230/95150919.jpg",
-      "discount_percent": 23
+      "discount_percent": 23,
+      "sales": 354
     }
   ]
