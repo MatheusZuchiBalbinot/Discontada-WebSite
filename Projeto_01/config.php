@@ -6,5 +6,4 @@
     $dbName = 'login_database';
     
     $connection = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
-
 ?>

@@ -10,6 +10,7 @@
     {
         $login_true = $_SESSION['login'];
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +21,7 @@
     <title> Discontada Shoes </title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-    <script src='script.js'>
-    </script>
+    <script src='script.js'></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
@@ -42,15 +42,43 @@
             <div class="header_n2">
                 <div class="search_box">
                     <!-- <span class="material-symbols-outlined" id="search_button" onclick=''> Search </span> -->
-                    
-                    <form action='' method="get" onclick='search()'>
                         <div class="search_bar"> 
+                            <form method="GET" name="form" action="main.php">
+                                <input type="text" id="search_bar_input" name="data" placeholder= "O que você deseja? " onchange='search_data()'>
+                                <button type='button'> submit </button>
 
-                            <input type="text" id="search_bar_input" placeholder= "O que você deseja? ">
-                            <button type='button'> submit </button> 
+                                <?php
+                                    if(!empty($_GET['search']))
+                                    {
+                                        $search_value = $_GET['search'];
+                                        $items = file_get_contents("items.json");
+                                        $obj_items = json_decode($items);
+
+                                        for($x = 0; $x < count($obj_items); $x++)
+                                        {
+                                            $valor_a = $obj_items[$x]->name;
+                                            if(stripos($valor_a, $search_value) !== FALSE)
+                                            {
+                                                echo "— ";
+                                                echo $obj_items[$x]->name;
+                                                header("Location: searched_items.html");
+                                            }
+                                            else
+                                            {
+                                                echo "Não foi achado nenhum produto com esse nome";
+                                            }
+                                            
+                                        }
+
+                                    } 
+                                    else 
+                                    {
+                                        echo "não tem nada";
+                                    }
+                                ?>
+                            </form>
+
                         </div>
-                    </form>
-
                 </div>
                 
             </div>
@@ -147,8 +175,16 @@
     
 </body>
 
+<script>
+
+    var search = document.getElementById("search_bar_input");
+    function search_data() {
+        location.href = 'main.php?search=' + search.value;
+        console.log(search);
+    };
+
+</script>
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-
 
 </html>
