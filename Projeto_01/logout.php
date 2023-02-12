@@ -3,6 +3,6 @@
     session_start();
     unset($_SESSION['login']);
     unset($_SESSION['password']);
-    header("Location: login.html");
+    header("Location: login.php");
 
 ?>
