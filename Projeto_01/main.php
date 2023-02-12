@@ -53,23 +53,20 @@
                                         $search_value = $_GET['search'];
                                         $items = file_get_contents("items.json");
                                         $obj_items = json_decode($items);
+                                        $variavel_sessão = [];
 
                                         for($x = 0; $x < count($obj_items); $x++)
                                         {
-                                            $valor_a = $obj_items[$x]->name;
+
+                                            $valor_a = $obj_items[$x]->name;    
                                             if(stripos($valor_a, $search_value) !== FALSE)
                                             {
-                                                echo "— ";
-                                                echo $obj_items[$x]->name;
-                                                header("Location: searched_items.html");
-                                            }
-                                            else
-                                            {
-                                                echo "Não foi achado nenhum produto com esse nome";
+                                                array_push($variavel_sessão, $valor_a);                                             
                                             }
                                             
                                         }
 
+                                    print_r($variavel_sessão);
                                     } 
                                     else 
                                     {
