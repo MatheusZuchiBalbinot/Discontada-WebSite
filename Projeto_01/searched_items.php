@@ -1,9 +1,10 @@
 <?php
     session_start();
-    $variable2 = $_SESSION['variavel1'];
-    for ($i = 0; $i < count($variable2); $i++) {
-        echo $variable2[$i] . ' ';
-   }
+    $searched_items_array = $_SESSION['searched_items_array'];
+    print_r($searched_items_array);
+    // for ($i = 0; $i < count($searched_items_array); $i++) {
+    //     echo $searched_items_array[$i] . ' ';
+    // }
 ?>
 
 <!DOCTYPE html>
