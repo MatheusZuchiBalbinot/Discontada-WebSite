@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: monospace;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 0.5fr;
+    grid-template-rows: 13vh auto auto;
+    grid-template-areas: 
+        "header header header"
+        "main main main"
+        "footer footer footer"
+        ;
+}
+
+header {
+    grid-area: header;
+    display: grid;
+    grid-template-areas: 
+        "n1 n2 n3";
+    grid-template-columns: 0.5fr 1.5fr 0.5fr;
+    
+}
+
+    .header_n1 {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .header_n1 img {
+        align-items: center;
+        max-width:10vh;
+        max-height:15vh;
+        width: auto;
+        height: auto;
+        border-radius: 1.5rem;
+        cursor: pointer;
+    }
+
+    .header_n2 {
+        min-height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center ;
+    }
+        
+        .search_box {
+            position: relative;
+            justify-content: end;
+            display: flex;
+        }
+        
+        #search_button {
+            width: 3vw;
+            height: 6.5vh;
+            background: #4ce3ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        #search_bar_input {
+            width: 35vw; 
+	        height: 6.5vh;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            border: none;
+        }
+
+    body > div > header > div.header_n3 {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    body > div > header > div.header_n3 i {
+        color: gray;
+    }
+
+    .header_n3 span {
+        font-size: 2rem;
+        padding: 1.5rem;
+        margin-top: 1.2rem;
+        cursor: pointer;
+        text-align: left;
+        justify-content: left;
+        align-items: left;
+
+    }
+
+        .header_n3 span:hover {
+            background-color: red;
+        }
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: 
+        ". slider .",
+        ". promotions .",
+        ". best_sellers .",
+        "";
+    grid-template-rows: auto;
+}
+
+    .slider {
+        height: 500px;
+        width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        display: flex;
+        align-items: center;
+    }
+
+        .slide {
+            position: relative;
+            align-items: center;
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+            .slide > #next_button, #previous_button {
+                position: absolute;
+                cursor: pointer;
+                font-size: 4rem;
+                background-color: white(228, 215, 215);
+                color: red;
+                border-radius: 50%;
+                justify-content: space-between;
+            }
+
+            .slide > #next_button:hover, #previous_button:hover {
+                background-color: rgb(240, 215, 215);
+            }
+            
+            .slide > #next_button {
+            margin-left: 936px;
+            }
+
+
+                #slider_image img {
+                    margin: 0 auto;
+                    height: 400px;
+                    width: 1000px;
+                }
+
+
+    body > div > div > h1 {
+        font-size: 3rem;
+        padding: 2rem;
+        font-family: 'Montserrat', sans-serif; 
+    }
+
+    #promotions, #best_sellers {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex: none;
+
+    }
+
+
+footer {
+    grid-area: footer;
+    display: inline-flex;
+    padding: 1.2rem;
+    justify-content: center;
+
+}
+    footer ul {
+        justify-content: left;
+        align-items: left;
+        text-align: left;
+    }
+
+    footer ul li {
+        font-size: 1em;
+        margin-left: 5rem;
+        margin-right: 5rem;
+        list-style-type: none;
+        padding: 0.2rem;
+    }
+
+        footer ul li#subtitle {
+            font-weight: bold;
+        }
