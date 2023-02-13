@@ -29,7 +29,7 @@ function navigation_slider_next() {
         }
     }
 }
-setInterval(navigation_slider_next, 5000)
+// setInterval(navigation_slider_next, 5000);
 
 window.onload = function () {
     navigation_slider_previous();

@@ -32,7 +32,7 @@
                                             
                                         }
 
-                                    print_r($variavel_sessão);
+                                    // print_r($variavel_sessão);
                                     $_SESSION['searched_items_array'] = $variavel_sessão;
                                     header("Location: searched_items.php");
                                     } 

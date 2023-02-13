@@ -39,6 +39,10 @@
         location.href = 'main.php?search=' + search.value;
         console.log(search);
     };
+    // const items_array = [];
+    // items_array.push("<?php echo json_encode($searched_items_array); ?>");
+    const item_array = <?php echo json_encode($searched_items_array); ?>;
+    console.log(item_array);   
 
 </script>
 </html>
