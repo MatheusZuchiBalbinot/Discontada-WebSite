@@ -23,18 +23,24 @@
 
                                         for($x = 0; $x < count($obj_items); $x++)
                                         {
+                                            $item_name = $obj_items[$x]->name;
 
-                                            $valor_a = $obj_items[$x]->name;    
-                                            if(stripos($valor_a, $search_value) !== FALSE)
+                                            if(stripos($item_name, $search_value) !== FALSE)
                                             {
-                                                array_push($variavel_sessão, $valor_a);                                             
+                                                $items_array_object = [
+                                                    'name' => $obj_items[$x]->name,
+                                                    'price' => $obj_items[$x]->price,
+                                                    'oldPrice' => $obj_items[$x]->oldPrice,
+                                                    'image' => $obj_items[$x]->image,
+                                                    'discount_percent' => $obj_items[$x]->discount_percent,
+                                                    'sales' => $obj_items[$x]->sales,
+                                                ];    
+                                                array_push($variavel_sessão, $items_array_object);
                                             }
                                             
                                         }
-
-                                    // print_r($variavel_sessão);
-                                    $_SESSION['searched_items_array'] = $variavel_sessão;
-                                    header("Location: searched_items.php");
+                                    $_SESSION['searched_items_array'] = $variavel_sessão; 
+                                    header("Location: searched_items.php");                                   
                                     } 
                                     else 
                                     {

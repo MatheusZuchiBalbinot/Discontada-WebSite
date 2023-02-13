@@ -117,36 +117,8 @@ async function card_items() {
         `
         );
 
+
         itemsDivcontents_best_sellers.innerHTML = contents_best_sellers.join('\n');
     }
 }
 card_items();
-
-// async function search() {
-
-//     // let obj;
-//     // const res = await fetch('http://localhost/Projeto_01/items.json');
-//     // obj = await res.json();
-
-
-//     var value = document.getElementById("search_bar_input").value;
-//     console.log(value);
-
-    
-//     // search_input.addEventListener("input", (e) => {
-//     //     let value = e.target.value.toLowerCase();
-//     //     console.log(value);
-//     // });
-
-//     // for(let i = 0; i <= obj.length; i++) {
-
-//     //     var result = obj[i].name;
-//     //     const items_name_array = [];
-//     //     items_name_array.push(obj[i].name);
-//     //     console.log(items_name_array);
-
-//     //     if(result === search_input.value) {
-//     //         console.log('Ok');
-//     //     }
-// // };
-// }

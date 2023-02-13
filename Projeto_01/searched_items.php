@@ -1,8 +1,16 @@
 <?php
-
     session_start();
+    if ((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['login']);
+        unset($_SESSION['password']);
+        header("Location: login.php");
+    }
+    else 
+    {
+        $login_true = $_SESSION['login'];
+    }
     $searched_items_array = $_SESSION['searched_items_array'];
-    print_r($searched_items_array);
 
 ?>
 
@@ -15,6 +23,9 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <script src='script.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -22,6 +33,11 @@
         <?php  include 'C:/xampp/htdocs/Projeto_01/templates/header.php'; ?>
 
         <div class="main">
+
+            <h1 id="all_items_title"> Itens encontrados:  </h1>
+            <div id="all_items" style="display:flex; flex:none;">
+
+            </div>
 
         </div>
 
@@ -36,13 +52,48 @@
 
     var search = document.getElementById("search_bar_input");
     function search_data() {
-        location.href = 'main.php?search=' + search.value;
+        location.href = 'searched_items.php?search=' + search.value;
         console.log(search);
     };
-    // const items_array = [];
-    // items_array.push("<?php echo json_encode($searched_items_array); ?>");
     const item_array = <?php echo json_encode($searched_items_array); ?>;
-    console.log(item_array);   
+    function search_items() {
 
+        const itemsDiv_all_items = document.getElementById("all_items");
+        const contents_all_items = [];
+
+        for (var i = 0; i < item_array.length; i++){
+            let name = item_array[i].name;
+            let image = item_array[i].image;
+            let oldPrice = item_array[i].oldPrice;
+            let price = item_array[i].price;
+            let discount = item_array[i].discount_percent;
+            let sales = item_array[i].sales;
+
+            contents_all_items.push(
+                `
+            <div class="card" style="width: 230px; height: auto; margin: 2rem; flex: none; name="card ` + i + `;">
+                <img src="` + image + `" alt="Avatar" style="width:100%; height: 60%;">
+                <h4> `+ name + ` </h4>
+                <div id="discount">
+                <a id="oldPrice"> R$ ` + oldPrice + ` reais </a>
+                <br>
+                <span class="material-symbols-outlined"> arrow_downward </span>
+                <a id="discount_percentage"> - ` + discount + `%</a>
+                <br>
+                <a id="price"> R$ ` + price + ` reais</a>
+                </div>
+                <br>
+                <a id="sales_reviews"> Vendidos: ` + sales + `</a>
+                <br>
+
+            </div>
+            `
+            
+            );
+        }
+        itemsDiv_all_items.innerHTML = contents_all_items.join('\n');
+    };
+
+search_items();
 </script>
 </html>
