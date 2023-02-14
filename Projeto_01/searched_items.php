@@ -10,7 +10,7 @@
     {
         $login_true = $_SESSION['login'];
     }
-    $searched_items_array = $_SESSION['searched_items_array'];
+    $searched_items_array = $_SESSION['searched_items_array']; 
 
 ?>
 
@@ -33,6 +33,7 @@
         <?php  include 'C:/xampp/htdocs/Projeto_01/templates/header.php'; ?>
 
         <div class="main">
+            <div id="buy_screen"></div>
 
             <h1 id="all_items_title"> Itens encontrados:  </h1>
             <div id="all_items" style="display:flex; flex:none;">
@@ -62,6 +63,7 @@
         const contents_all_items = [];
 
         for (var i = 0; i < item_array.length; i++){
+            let id = item_array[i].id;
             let name = item_array[i].name;
             let image = item_array[i].image;
             let oldPrice = item_array[i].oldPrice;
@@ -71,19 +73,19 @@
 
             contents_all_items.push(
                 `
-            <div class="card" style="width: 230px; height: auto; margin: 2rem; flex: none; name="card ` + i + `;">
-                <img src="` + image + `" alt="Avatar" style="width:100%; height: 60%;">
-                <h4> `+ name + ` </h4>
-                <div id="discount">
-                <a id="oldPrice"> R$ ` + oldPrice + ` reais </a>
+            <div class="card" id="`+id+`" onclick='buy_screen()' style="width: 230px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
+                <img src="` + image + `" class="image" id="`+id+`" alt="Avatar" style="width:100%; height: 60%; onclick="buy_screen()">
+                <h4 class="item_name" id="`+id+`" onclick='buy_screen()'> `+ name + ` </h4>
+                <div class="values" id="`+id+`" onclick="buy_screen()" >
+                <a class="oldPrice" id="`+id+`" > R$ ` + oldPrice + ` reais </a>
                 <br>
                 <span class="material-symbols-outlined"> arrow_downward </span>
-                <a id="discount_percentage"> - ` + discount + `%</a>
+                <a class="discount_percentage" id="`+id+`" > - ` + discount + `%</a>
                 <br>
-                <a id="price"> R$ ` + price + ` reais</a>
+                <a class="price" id="`+id+`" > R$ ` + price + ` reais</a>
                 </div>
                 <br>
-                <a id="sales_reviews"> Vendidos: ` + sales + `</a>
+                <a class="sales_reviews" id="`+id+`" > Vendidos: ` + sales + `</a>
                 <br>
 
             </div>
@@ -94,6 +96,56 @@
         itemsDiv_all_items.innerHTML = contents_all_items.join('\n');
     };
 
+    function buy_screen() {
+
+            document.addEventListener('click', (e) => {
+            var clicked_item = e.target.id;
+            console.log(clicked_item);
+            for(var i = 0; i < item_array.length; i++) {
+                if(item_array[i].id == clicked_item) {
+                    document.getElementById("buy_screen").innerHTML = `<div id="screen"  style="width: 50vw; height: 80vh; background-color: #2f3034; color: white; position: fixed; border: 0.2rem solid white; box-shadow: 0 0 0 99999px rgba(0, 0, 0, .8); z-index: 1; justify-content: center; left: 25vw"></div> `;
+                    var screen_location =  document.getElementById("screen");
+
+                    const itemsDiv_buy_screen = document.getElementById("screen");
+                    const contents_buy_screen = [];
+                    var a = '<img src="'+item_array[i].image+'">'
+                    contents_buy_screen.push(
+                        `
+                    <div class="card" onclick='buy_screen()' style="width: 350px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
+                        <img src="` + item_array[i].image + `" class="image" alt="Avatar" style="width:100%; height: 60%; onclick="buy_screen()">
+                        <h4 class="item_name" onclick='buy_screen()'> `+ item_array[i].name + ` </h4>
+                        <div class="values" onclick="buy_screen()" >
+                        <a class="oldPrice"  > R$ ` + item_array[i].oldPrice + ` reais </a>
+                        <br>
+                        <span class="material-symbols-outlined"> arrow_downward </span>
+                        <a class="discount_percentage"  > - ` + item_array[i].discount_percent + `%</a>
+                        <br>
+                        <a class="price" > R$ ` + item_array[i].price + ` reais</a>
+                        </div>
+                        <br>
+                        <a class="sales_reviews" > Vendidos: ` + item_array[i].sales + `</a>
+                        <br>
+
+                    </div>
+                    `
+                
+                    );
+                    // var a = '<img src="'+item_array[i].image+'">'
+                    // screen_location.innerHTML = a+'<br>';
+                    // screen_location.innerHTML += item_array[i].name+'<br>';
+                    // screen_location.innerHTML += 'R$: '+item_array[i].oldPrice+'<br>';
+                    // screen_location.innerHTML += 'R$: '+item_array[i].price+'<br>';
+                    // screen_location.innerHTML += item_array[i].discount_percent+'<br>';
+                    // screen_location.innerHTML += item_array[i].sales;
+
+                itemsDiv_buy_screen.innerHTML = contents_buy_screen.join('\n');
+                }
+            }
+            }); 
+
+};
+
 search_items();
+
 </script>
 </html>

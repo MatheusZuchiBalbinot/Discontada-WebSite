@@ -184,31 +184,31 @@ header {
         background-color: rgb(193, 238, 217);
     }
 
-    .card #sales_reviews {
+    .card .sales_reviews {
         position: relative;
         margin-left: 0.3rem;
     }
 
-    .card #oldPrice {
+    .card .oldPrice {
         text-decoration: line-through;
         color: rgb(238, 60, 60);
         margin-left: 0.3rem;
     }
 
-    .card #price {
+    .card .price {
         text-transform: bold;
         color: green;
         font-weight: bold;
         margin-left: 0.3rem;
     }
 
-    .card #discount {
+    .card .values {
         color: green;
         text-align: center;
         justify-content: center;
     }
 
-    .card #discount_percentage {
+    .card .discount_percentage {
         position: relative;
         padding: 0.1rem;
         top: -6px;

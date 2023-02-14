@@ -55,14 +55,12 @@ async function card_items() {
                 return -1;
             }
         });
-        
         let name_promotions = obj_promotions[i].name;
         let image_promotions = obj_promotions[i].image;
         let oldPrice_promotions = obj_promotions[i].oldPrice;
         let price_promotions = obj_promotions[i].price;
         let discount_percent_promotions = obj_promotions[i].discount_percent;
         let sales_promotions = obj_promotions[i].sales;
-        
         contents_promotions.push(
             `
         <div style="width: auto; height: auto; background-color: red; margin: 2rem; flex: none; name="card ` + i + `;">
@@ -103,7 +101,7 @@ async function card_items() {
 
         contents_best_sellers.push(
             `
-        <div style="width: auto; height: auto; background-color: red; margin: 2rem; flex: none; name="card ` + i + `;">
+        <div style="width: auto; height: auto; background-color: red; margin: 2rem; flex: none; name="card`+i+`;">
             <h4 style="padding: 0.7rem; text-align: center; background-color: green; color: white;"> Desconto de ` + discount_percent_best_sellers + `%  </h4>
             <img src="` + image_best_sellers + `" alt="Avatar" style="width:100%; height: 60%;">
             <h5> `+ name_best_sellers + ` </h5>

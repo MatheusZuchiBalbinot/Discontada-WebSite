@@ -28,6 +28,7 @@
                                             if(stripos($item_name, $search_value) !== FALSE)
                                             {
                                                 $items_array_object = [
+                                                    'id' => $obj_items[$x]->id,
                                                     'name' => $obj_items[$x]->name,
                                                     'price' => $obj_items[$x]->price,
                                                     'oldPrice' => $obj_items[$x]->oldPrice,
@@ -37,6 +38,7 @@
                                                 ];    
                                                 array_push($variavel_sessão, $items_array_object);
                                             }
+                                            
                                             
                                         }
                                     $_SESSION['searched_items_array'] = $variavel_sessão; 
