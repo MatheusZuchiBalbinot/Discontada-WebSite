@@ -103,42 +103,34 @@
             console.log(clicked_item);
             for(var i = 0; i < item_array.length; i++) {
                 if(item_array[i].id == clicked_item) {
-                    document.getElementById("buy_screen").innerHTML = `<div id="screen"  style="width: 50vw; height: 80vh; background-color: #2f3034; color: white; position: fixed; border: 0.2rem solid white; box-shadow: 0 0 0 99999px rgba(0, 0, 0, .8); z-index: 1; justify-content: center; left: 25vw"></div> `;
+                    document.getElementById("buy_screen").innerHTML = `<div id="screen"  style="width: 50vw; height: 80vh; background-color: white; color: black; position: fixed; border: 0.2rem solid white; box-shadow: 0 0 0 99999px rgba(0, 0, 0, .8); z-index: 1; justify-content: center; left: 25vw; padding: 0; margin: 0;"></div> `;
                     var screen_location =  document.getElementById("screen");
 
-                    const itemsDiv_buy_screen = document.getElementById("screen");
-                    const contents_buy_screen = [];
+                    const itemsDiv_screen = document.getElementById("screen");
+                    const contents_screen = [];
                     var a = '<img src="'+item_array[i].image+'">'
-                    contents_buy_screen.push(
+                    contents_screen.push(
                         `
-                    <div class="card" onclick='buy_screen()' style="width: 350px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
-                        <img src="` + item_array[i].image + `" class="image" alt="Avatar" style="width:100%; height: 60%; onclick="buy_screen()">
-                        <h4 class="item_name" onclick='buy_screen()'> `+ item_array[i].name + ` </h4>
-                        <div class="values" onclick="buy_screen()" >
-                        <a class="oldPrice"  > R$ ` + item_array[i].oldPrice + ` reais </a>
+                    <div class="searched_card" onclick='buy_screen()' name="card` + i + `">
+                        <img src="` + item_array[i].image + `" class="searched_image" alt="Avatar" onclick="buy_screen()">
+                        <div class="searched_values" onclick="buy_screen()" >
+                        <h4 class="searched_item_name" onclick='buy_screen()'> `+ item_array[i].name + ` </h4>
+                        <a class="searched_oldPrice"  > R$ ` + item_array[i].oldPrice + ` reais </a>
                         <br>
                         <span class="material-symbols-outlined"> arrow_downward </span>
-                        <a class="discount_percentage"  > - ` + item_array[i].discount_percent + `%</a>
+                        <a class="searched_discount_percentage"  > - ` + item_array[i].discount_percent + `%</a>
                         <br>
-                        <a class="price" > R$ ` + item_array[i].price + ` reais</a>
+                        <a class="searched_price" > R$ ` + item_array[i].price + ` reais</a>
+                        <br>
+                        <a class="searched_sales_reviews" > Vendidos: ` + item_array[i].sales + `</a>
                         </div>
-                        <br>
-                        <a class="sales_reviews" > Vendidos: ` + item_array[i].sales + `</a>
-                        <br>
 
                     </div>
                     `
                 
                     );
-                    // var a = '<img src="'+item_array[i].image+'">'
-                    // screen_location.innerHTML = a+'<br>';
-                    // screen_location.innerHTML += item_array[i].name+'<br>';
-                    // screen_location.innerHTML += 'R$: '+item_array[i].oldPrice+'<br>';
-                    // screen_location.innerHTML += 'R$: '+item_array[i].price+'<br>';
-                    // screen_location.innerHTML += item_array[i].discount_percent+'<br>';
-                    // screen_location.innerHTML += item_array[i].sales;
 
-                itemsDiv_buy_screen.innerHTML = contents_buy_screen.join('\n');
+                itemsDiv_screen.innerHTML = contents_screen.join('\n');
                 }
             }
             }); 
