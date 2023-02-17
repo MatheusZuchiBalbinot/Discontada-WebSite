@@ -11,9 +11,7 @@
         $login_true = $_SESSION['login'];
     }
     $searched_items_array = $_SESSION['searched_items_array']; 
-
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +48,7 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script>
-
+    <?php $searched_items_array = $_SESSION['searched_items_array']; ?>
     var search = document.getElementById("search_bar_input");
     function search_data() {
         location.href = 'searched_items.php?search=' + search.value;

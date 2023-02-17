@@ -10,7 +10,6 @@
     {
         $login_true = $_SESSION['login'];
     }
-    
 ?>
 
 <!DOCTYPE html>
@@ -43,12 +42,12 @@
 
                 <div class="slide">
 
-                    <span class="material-symbols-outlined" id="previous_button" onclick="navigation_slider_previous()"> chevron_left </span>
-                    <span class="material-symbols-outlined" id="next_button" onclick="navigation_slider_next()"> chevron_right </span>
                     
                     <div id="slider_image">
 
                     </div>
+                    <span class="material-symbols-outlined" id="previous_button" onclick="navigation_slider_previous()"> chevron_left </span>
+                    <span class="material-symbols-outlined" id="next_button" onclick="navigation_slider_next()"> chevron_right </span>
                 </div>
 
             </div>
@@ -74,7 +73,6 @@
 </body>
 
 <script>
-
     var search = document.getElementById("search_bar_input");
     function search_data() {
         location.href = 'main.php?search=' + search.value;
@@ -82,6 +80,7 @@
     };
 
 </script>
+
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
