@@ -55,6 +55,7 @@ async function card_items() {
                 return -1;
             }
         });
+        let id_promotions = obj_promotions[i].id;
         let name_promotions = obj_promotions[i].name;
         let image_promotions = obj_promotions[i].image;
         let oldPrice_promotions = obj_promotions[i].oldPrice;
@@ -63,18 +64,23 @@ async function card_items() {
         let sales_promotions = obj_promotions[i].sales;
         contents_promotions.push(
             `
-        <div style="width: auto; height: auto; background-color: red; margin: 2rem; flex: none; name="card ` + i + `;">
-            <h4 style="padding: 0.7rem; text-align: center; background-color: green; color: white;"> Desconto de ` + discount_percent_promotions + `%  </h4>
-            <img src="` + image_promotions + `" alt="Avatar" style="width:100%; height: 60%;">
-            <h5> `+ name_promotions + ` </h5>
-            <a> De: R$ ` + oldPrice_promotions + ` reais</a>
-            <br>
-            <a> Por: R$ ` + price_promotions + ` reais</a>
-            <br>
-            <a> Vendidos: ` + sales_promotions + `</a>
-        </div>
-        
-        `
+            <div class="card" id="`+id_promotions +`" onclick='buy_screen()' style="width: 230px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
+                <img src="` + image_promotions + `" class="image" id="`+id_promotions +`" alt="Avatar" style="width:100%; height: 60%; onclick="buy_screen()">
+                <h4 class="item_name" id="`+id_promotions +`" onclick='buy_screen()'> `+ name_promotions + ` </h4>
+                <div class="values" id="`+id_promotions +`" onclick="buy_screen()" >
+                <a class="oldPrice" id="`+id_promotions +`" > R$ ` + oldPrice_promotions + ` reais </a>
+                <br>
+                <span class="material-symbols-outlined"> arrow_downward </span>
+                <a class="discount_percentage" id="`+id_promotions +`" > - ` + discount_percent_promotions + `%</a>
+                <br>
+                <a class="price" id="`+id_promotions +`" > R$ ` + price_promotions + ` reais</a>
+                </div>
+                <br>
+                <a class="sales_reviews" id="`+id_promotions +`" > Vendidos: ` + sales_promotions + `</a>
+                <br>
+
+            </div>
+            `
         );
 
         itemsDiv_promotions.innerHTML = contents_promotions.join('\n');
@@ -92,6 +98,7 @@ async function card_items() {
             }
         });
 
+        let id_best_sellers = obj_promotions[i].id;
         let name_best_sellers = obj_best_sellers[i].name;
         let image_best_sellers = obj_best_sellers[i].image;
         let oldPrice_best_sellers = obj_best_sellers[i].oldPrice;
@@ -101,22 +108,33 @@ async function card_items() {
 
         contents_best_sellers.push(
             `
-        <div style="width: auto; height: auto; background-color: red; margin: 2rem; flex: none; name="card`+i+`;">
-            <h4 style="padding: 0.7rem; text-align: center; background-color: green; color: white;"> Desconto de ` + discount_percent_best_sellers + `%  </h4>
-            <img src="` + image_best_sellers + `" alt="Avatar" style="width:100%; height: 60%;">
-            <h5> `+ name_best_sellers + ` </h5>
-            <a> De: R$ ` + oldPrice_best_sellers + ` reais</a>
-            <br>
-            <a> Por: R$ ` + price_best_sellers + ` reais</a>
-            <br>
-            <a> Vendidos: ` + sales_best_sellers + `</a>
-        </div>
-        
-        `
+            <div class="card" id="`+id_best_sellers +`" onclick='buy_screen()' style="width: 230px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
+                <img src="` + image_best_sellers + `" class="image" id="`+id_best_sellers +`" alt="Avatar" style="width:100%; height: 60%; onclick="buy_screen()">
+                <h4 class="item_name" id="`+id_best_sellers +`" onclick='buy_screen()'> `+ name_best_sellers + ` </h4>
+                <div class="values" id="`+id_best_sellers +`" onclick="buy_screen()" >
+                <a class="oldPrice" id="`+id_best_sellers +`" > R$ ` + oldPrice_best_sellers + ` reais </a>
+                <br>
+                <span class="material-symbols-outlined"> arrow_downward </span>
+                <a class="discount_percentage" id="`+id_best_sellers +`" > - ` + discount_percent_best_sellers + `%</a>
+                <br>
+                <a class="price" id="`+id_best_sellers +`" > R$ ` + price_best_sellers + ` reais</a>
+                </div>
+                <br>
+                <a class="sales_reviews" id="`+id_best_sellers +`" > Vendidos: ` + sales_best_sellers + `</a>
+                <br>
+
+            </div>
+            `
         );
 
 
         itemsDivcontents_best_sellers.innerHTML = contents_best_sellers.join('\n');
     }
 }
+
+var search = document.getElementById("search_bar_input");
+    function search_data() {
+        location.href = 'searched_items.php?search=' + search.value;
+    };
+
 card_items();

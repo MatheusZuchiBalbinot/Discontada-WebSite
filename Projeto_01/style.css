@@ -8,7 +8,7 @@
 .container {
     display: grid;
     grid-template-columns: 0.5fr 1.5fr 0.5fr;
-    grid-template-rows: 13vh auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-areas: 
         "header header header"
         "main main main"
@@ -20,27 +20,32 @@ header {
     grid-area: header;
     display: grid;
     grid-template-areas: 
-        "n1 n2 n3";
-    grid-template-columns: 0.5fr 1.5fr 0.5fr;
-    
+        "header_n1 header_n2 header_n3";
+    grid-template-columns: 0.7fr 2fr 0.5fr;
+    grid-template-rows: auto;
+    background-color: white;
+    max-height: auto;
 }
 
     .header_n1 {
-        padding: 1rem;
+        grid-area: header_n1;
         text-align: center;
     }
 
     .header_n1 img {
         align-items: center;
-        max-width:10vh;
-        max-height:15vh;
-        width: auto;
-        height: auto;
         border-radius: 1.5rem;
         cursor: pointer;
+        padding: 1rem;
+        width: 100px;
+        height: auto;
+        padding: 0;
+        margin: 0.5rem;
     }
 
     .header_n2 {
+        grid-area: header_n2;
+        width: 100%;
         min-height: 10vh;
         display: flex;
         justify-content: center;
@@ -65,13 +70,36 @@ header {
             margin-left: 10px;
         }
 
+        #search_button_span {
+            border: none;
+            width: 10%;
+            font-size: 2em;
+            cursor: pointer;
+        }
+
+        #search_button_span:hover {
+            color: white;
+            background-color: #be2f3e;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+        }
+
         #search_bar_input {
-            width: 35vw; 
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+            width: 50vw; 
 	        height: 6.5vh;
             cursor: pointer;
             align-items: center;
             justify-content: center;
             border: none;
+            outline: none;
+        }
+
+        #search_bar_input:hover {
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
         }
 
     body > div > header > div.header_n3 {
@@ -86,19 +114,28 @@ header {
         color: gray;
     }
 
+    .header_n3 {
+        grid-area: header_n3;
+    }
+    .header_n3 #welcome {
+        margin: 1.5rem;
+        padding-right: 1rem;
+    }
     .header_n3 span {
         font-size: 2rem;
-        padding: 1.5rem;
-        margin-top: 1.2rem;
+        padding: 2rem;
         cursor: pointer;
         text-align: left;
         justify-content: left;
         align-items: left;
+        border-radius: 50%;
 
     }
 
         .header_n3 span:hover {
-            background-color: red;
+            background-color: #be2f3e;
+            color: white;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
         }
 
 .main {
@@ -156,7 +193,6 @@ header {
 
 
     body > div > div > h1 {
-        font-size: 3rem;
         padding: 2rem;
         font-family: 'Montserrat', sans-serif; 
     }
@@ -223,13 +259,82 @@ header {
         grid-template-areas: 
         'searched_image searched_values';
         grid-template-columns: 70% 30%;
-        grid-template-rows: auto;
         height: 100%;
         align-items: center;
     }
     #screen .card {
         background-color: red;
         display: flex;
+    }
+
+    #screen .searched_values {
+        grid-area: searched_values;
+        text-align: center;
+        padding: 1rem;
+        
+    }
+
+    #screen .searched_item_name {
+        display: flex;
+        position: absolute;
+        top: 0%;
+        padding: 1rem;
+    }
+    
+    #screen .searched_oldPrice {
+        color: red;
+        text-decoration: line-through;
+    }
+    
+    #screen .searched_price {
+        color: green;
+    }
+
+    #screen .searched_sales_reviews {
+        position: relative;
+        padding: 1rem;
+        margin: auto;
+    }
+
+    #screen #clicked_screen_buttons {
+        display: block;
+        position: absolute;
+        bottom: 0%;
+        padding: 1rem;
+    }
+
+    #screen #add_cart_clicked_screen_button {
+        background-color: #1c5560;
+        border: none;
+        color: white;
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 2rem;
+    }
+    #screen #add_cart_clicked_screen_button:hover {
+        cursor: pointer;
+        background-color: #4ce3ee;
+        color: black;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    }
+
+    #screen #skip_clicked_screen_button{
+        width: 100%;
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 2rem;
+        background-color: #be2f3e;
+        border: none;
+        color: white;
+    }
+
+    #screen #skip_clicked_screen_button:hover {
+        cursor: pointer;
+        color: black;
+        background-color: #eb7883;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     }
 
     #screen .searched_image {
@@ -240,24 +345,10 @@ header {
         text-align: center;
         justify-content: center;
         width: 80%;
-        background-color: red;
     }
 
-    #screen .searched_values {
-        grid-area: searched_values;
-    }
-    /* .card #add_cart {
-        display: flex;
-        border: none;
-        background-color: red;
-        padding: 1rem;
-        width: 70%;
-        text-align: center;
-        justify-content: center;
-        margin: 0 auto;
-        top: 10px;
-        border-radius: 2rem;
-    } */
+    
+
 
 
 

@@ -7,11 +7,10 @@
 
             <div class="header_n2">
                 <div class="search_box">
-                    <!-- <span class="material-symbols-outlined" id="search_button" onclick=''> Search </span> -->
                         <div class="search_bar"> 
-                            <form method="GET" name="form" action="main.php">
-                                <input type="text" id="search_bar_input" name="data" placeholder= "O que você deseja? " onchange='search_data()'>
-                                <button type='button'> submit </button>
+                            <form method="GET" name="form" action="main.php" style="display:flex">
+                                <input type="text" id="search_bar_input" name="data" placeholder= "  O que você deseja? " onchange='search_data()'>
+                                <button type='button' id="search_button_span"> <span class="material-symbols-outlined">search</span> </button>
 
                                 <?php
                                     if(!empty($_GET['search']))
@@ -46,11 +45,14 @@
                                     } 
                                     else 
                                     {
-                                        echo "não tem nada";
+                                        if(empty($_GET['search']) and !empty($items_array_object))
+                                        {
+                                            echo "<br> Não foi encontrado nenhum item com esses dígitos";
+                                        }
+                                        
                                     }
                                 ?>
                             </form>
-
                         </div>
                 </div>
                 
@@ -61,7 +63,7 @@
                 <?php
                     if(!empty($login_true))
                     {
-                        echo "<a> Bem vindo <br> <i> $login_true </i>  </a>";
+                        echo "<a id='welcome'> Bem vindo/a <i> $login_true </i>  </a>";
                     }
                 ?>
                 <span class='material-symbols-outlined' onClick="location.href='logout.php'"> Logout </span>

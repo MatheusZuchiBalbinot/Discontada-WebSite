@@ -100,43 +100,54 @@
 
             document.addEventListener('click', (e) => {
             var clicked_item = e.target.id;
-            console.log(clicked_item);
             for(var i = 0; i < item_array.length; i++) {
                 if(item_array[i].id == clicked_item) {
-                    document.getElementById("buy_screen").innerHTML = `<div id="screen"  style="width: 50vw; height: 80vh; background-color: white; color: black; position: fixed; border: 0.2rem solid white; box-shadow: 0 0 0 99999px rgba(0, 0, 0, .8); z-index: 1; justify-content: center; left: 25vw; padding: 0; margin: 0;"></div> `;
+                    var buy_screen_div = document.getElementById("buy_screen").innerHTML = `<div id="screen"  style="width: 50vw; height: 80vh; background-color: white; color: black; position: fixed; box-shadow: 0 0 0 99999px rgba(0, 0, 0, .8); z-index: 1; justify-content: center; left: 25vw; padding: 0; margin: 0;"></div> `;
                     var screen_location =  document.getElementById("screen");
 
                     const itemsDiv_screen = document.getElementById("screen");
                     const contents_screen = [];
-                    var a = '<img src="'+item_array[i].image+'">'
+
+                    let chosed_item_dict = {
+                        name: item_array[i].name,
+                        price: item_array[i].price,
+                        oldPrice: item_array[i].oldPrice,
+                        image: item_array[i].image,
+                        discount_percent: item_array[i].discount_percent,
+                        sales: item_array[i].sales,
+                    }
+
                     contents_screen.push(
                         `
                     <div class="searched_card" onclick='buy_screen()' name="card` + i + `">
                         <img src="` + item_array[i].image + `" class="searched_image" alt="Avatar" onclick="buy_screen()">
                         <div class="searched_values" onclick="buy_screen()" >
                         <h4 class="searched_item_name" onclick='buy_screen()'> `+ item_array[i].name + ` </h4>
-                        <a class="searched_oldPrice"  > R$ ` + item_array[i].oldPrice + ` reais </a>
+                        <a class="searched_oldPrice"  > R$ ` + item_array[i].oldPrice + ` </a>
                         <br>
                         <span class="material-symbols-outlined"> arrow_downward </span>
                         <a class="searched_discount_percentage"  > - ` + item_array[i].discount_percent + `%</a>
                         <br>
-                        <a class="searched_price" > R$ ` + item_array[i].price + ` reais</a>
+                        <a class="searched_price" > R$ ` + item_array[i].price + `</a>
+                        <br>
+                        <a class="searched_price_" > Ou 4x de R$ ` + (item_array[i].price/4).toFixed(2) + `</a>
                         <br>
                         <a class="searched_sales_reviews" > Vendidos: ` + item_array[i].sales + `</a>
+                        <br>
+                        <div id="clicked_screen_buttons"> 
+                            <button id="add_cart_clicked_screen_button" onclick='add_in_cart()' '>Adicionar ao carrinho</button>
+                            <button type="button" id="skip_clicked_screen_button" onclick='document.getElementById("screen").style.display="none" '> Sair </button>
                         </div>
-
+                        </div>
                     </div>
                     `
                 
                     );
-
                 itemsDiv_screen.innerHTML = contents_screen.join('\n');
                 }
             }
             }); 
-
-};
-
+    };
 search_items();
 
 </script>
