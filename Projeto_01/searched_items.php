@@ -18,7 +18,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title> Item pesquisado </title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <script src='script.js'></script>
@@ -35,6 +35,20 @@
             <div id="buy_screen"></div>
 
             <h1 id="all_items_title"> Itens encontrados:  </h1>
+
+            <div id="controller_options"> 
+                <button type="button" class="config_button"> Ordenar por <span class="material-symbols-outlined" id="menu_icon" style="margin-left: 0.5rem;  ">menu</span></button>
+                <div id="config_select_buttons" style="padding: 1vw;"> 
+                    <input type="radio"> Ordenar pelo mais barato </input>
+                    <br>
+                    <input type="radio"> Ordenar pelo mais caro </input>
+                    <br>
+                    <input type="radio"> Ordenar pelo mais vendido </input>
+                    <br>
+                    <input type="radio"> Ordenar pelo maior desconto </input>
+                </div>
+            </div>
+            
             <div id="all_items" style="display:flex; flex:none;">
 
             </div>
@@ -78,7 +92,7 @@
                 <div class="values" id="`+id+`" onclick="buy_screen()" >
                 <a class="oldPrice" id="`+id+`" > R$ ` + oldPrice + ` reais </a>
                 <br>
-                <span class="material-symbols-outlined"> arrow_downward </span>
+                <span class="material-symbols-outlined" id="card_span_icon"> arrow_downward </span>
                 <a class="discount_percentage" id="`+id+`" > - ` + discount + `%</a>
                 <br>
                 <a class="price" id="`+id+`" > R$ ` + price + ` reais</a>
@@ -124,7 +138,7 @@
                         <h4 class="searched_item_name"> `+ item_array[i].name + ` </h4>
                         <a class="searched_oldPrice"  > R$ ` + item_array[i].oldPrice + ` </a>
                         <br>
-                        <span class="material-symbols-outlined"> arrow_downward </span>
+                        <span class="material-symbols-outlined" id="card_span_icon"> arrow_downward </span>
                         <a class="searched_discount_percentage"  > - ` + item_array[i].discount_percent + `%</a>
                         <br>
                         <a class="searched_price" > R$ ` + item_array[i].price + `</a>

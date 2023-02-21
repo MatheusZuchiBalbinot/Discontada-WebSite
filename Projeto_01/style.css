@@ -151,7 +151,7 @@ header {
         ". promotions .",
         ". best_sellers .",
         ". all_items .",
-        ". cart_items .";
+        ". cart_screen .";
     grid-template-rows: auto;
 }
 
@@ -304,7 +304,7 @@ header {
         top: -3px;
     }
     
-    #screen .searched_price, .searched_discount_percentage, span {
+    #screen .searched_price, .searched_discount_percentage, #card_span_icon {
         color: green;
     }
 
@@ -367,7 +367,56 @@ header {
         height: auto;
     }
 
-    
+    #cart_items {
+        grid-area: cart_items;
+    }
+
+    #items_config {
+        grid-area: items_config;
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    .config_button {
+        display: flex;
+        width: auto;
+        height: 5vh;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        border: none;
+        padding: 1vw;
+        cursor: pointer;    
+        width: 100%;
+    }
+
+    .config_button:hover {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 1px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        background-color: rgb(56, 50, 50);
+        color: white;
+    }
+
+    #config_select_buttons {
+        color: rgb(175, 235, 243);
+        background-color: rgb(56, 50, 50);
+        display: none;
+        position: absolute;
+        z-index: 1;
+        width: 20%;
+    }
+
+    .config_button:hover + #config_select_buttons {display: block; }
+    #config_select_buttons:hover {display: block;}
+
+    #controller_options {
+        width: 20%;
+        margin: 0 auto;
+    }
+
+    #menu_icon {
+        color: #255a66;
+    }
 
 
 

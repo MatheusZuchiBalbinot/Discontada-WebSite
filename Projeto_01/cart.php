@@ -1,5 +1,15 @@
 <?php
     session_start();
+    if ((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['login']);
+        unset($_SESSION['password']);
+        header("Location: login.php");
+    }
+    else 
+    {
+        $login_true = $_SESSION['login'];
+    }
     $searched_items_array = $_SESSION['searched_items_array']; 
 ?>
 
@@ -22,10 +32,16 @@
 
         <div class="main">
 
-        <div id="cart_items" style="display:flex; "> 
+        <h1 id="cart_title"> Itens no carrinho:  </h1>
+        <div id="cart_screen" style="flex:none; flex-wrap: wrap;"> 
 
+            <div id="cart_items"> 
+
+            </div>
 
         </div>
+
+
 
         </div>
 
