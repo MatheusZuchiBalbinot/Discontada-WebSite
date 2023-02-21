@@ -37,6 +37,7 @@
 
         <div class="main">
 
+            <div id="buy_screen"></div>
 
             <div class="slider">
 

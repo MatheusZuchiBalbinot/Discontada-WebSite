@@ -50,19 +50,24 @@
 </body>
 
 <script>
+
     <?php $searched_items_array = $_SESSION['searched_items_array']; ?>
     const item_array = <?php echo json_encode($searched_items_array); ?>;
 
     const itemsDiv_cart = document.getElementById("cart_items");
     const contents_cart = [];
 
+    var obj_chosed_item = JSON.parse(sessionStorage.obj_chosed_item);
 
     let items_id = [];
+    
+    console.log(obj_item_array);
+    console.log(obj_chosed_item);
 
     for(i = 0; i < item_array.length; i++) {
         items_id.push(item_array[i].id);
     }
-
+    
     for(x = 0; x < obj.length; x++) {
         for(i = 0; i < item_array.length; i++) {
             if(obj[x] == items_id[i]) {
