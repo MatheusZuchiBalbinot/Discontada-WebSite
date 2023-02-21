@@ -50,8 +50,6 @@
 </body>
 
 <script>
-
-    var obj = JSON.parse(sessionStorage.chosed_item_dict_related);
     <?php $searched_items_array = $_SESSION['searched_items_array']; ?>
     const item_array = <?php echo json_encode($searched_items_array); ?>;
 

@@ -35,10 +35,14 @@ window.onload = function () {
     navigation_slider_previous();
 }
 
+function add_in_cart() {
+    var chosed_item_dict_related = chosed_item_dict;
+    sessionStorage.setItem("chosed_item_dict_related", JSON.stringify(chosed_item_dict_related));
+}
+var obj = JSON.parse(sessionStorage.chosed_item_dict_related);
 
 // Função que consome os dados do arquivo json, adiciona e exibe os cards individualmente. 
     
-
 async function card_items() {
     let obj;
     const res = await fetch('http://localhost/Projeto_01/items.json');
@@ -97,7 +101,7 @@ async function card_items() {
             }
         });
 
-        let id_best_sellers = obj_promotions[i].id;
+        let id_best_sellers = obj_best_sellers[i].id;
         let name_best_sellers = obj_best_sellers[i].name;
         let image_best_sellers = obj_best_sellers[i].image;
         let oldPrice_best_sellers = obj_best_sellers[i].oldPrice;
@@ -130,6 +134,7 @@ async function card_items() {
         itemsDivcontents_best_sellers.innerHTML = contents_best_sellers.join('\n');
     }
 }
+
 
 var search = document.getElementById("search_bar_input");
     function search_data() {

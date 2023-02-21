@@ -39,13 +39,13 @@
             <div id="controller_options"> 
                 <button type="button" class="config_button"> Ordenar por <span class="material-symbols-outlined" id="menu_icon" style="margin-left: 0.5rem;  ">menu</span></button>
                 <div id="config_select_buttons" style="padding: 1vw;"> 
-                    <input type="radio"> Ordenar pelo mais barato </input>
+                    <input type="radio" id="lower_value"> Ordenar pelo mais barato </input>
                     <br>
-                    <input type="radio"> Ordenar pelo mais caro </input>
+                    <input type="radio" id="highiest_value"> Ordenar pelo mais caro </input>
                     <br>
-                    <input type="radio"> Ordenar pelo mais vendido </input>
+                    <input type="radio" id="best_seller"> Ordenar pelo mais vendido </input>
                     <br>
-                    <input type="radio"> Ordenar pelo maior desconto </input>
+                    <input type="radio" id="biggest_discount"> Ordenar pelo maior desconto </input>
                 </div>
             </div>
             
@@ -63,6 +63,9 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script>
+
+    
+
     <?php $searched_items_array = $_SESSION['searched_items_array']; ?>
     var search = document.getElementById("search_bar_input");
     function search_data() {
@@ -70,12 +73,14 @@
         console.log(search);
     };
     const item_array = <?php echo json_encode($searched_items_array); ?>;
+
     function search_items() {
 
         const itemsDiv_all_items = document.getElementById("all_items");
         const contents_all_items = [];
 
         for (var i = 0; i < item_array.length; i++){
+
             let id = item_array[i].id;
             let name = item_array[i].name;
             let image = item_array[i].image;
@@ -83,6 +88,7 @@
             let price = item_array[i].price;
             let discount = item_array[i].discount_percent;
             let sales = item_array[i].sales;
+
 
             contents_all_items.push(
                 `
@@ -161,12 +167,6 @@
             }
             }); 
     };
-
-    function add_in_cart() {
-        console.log(chosed_item_dict);
-        var chosed_item_dict_related = chosed_item_dict;
-        sessionStorage.setItem("chosed_item_dict_related", JSON.stringify(chosed_item_dict_related));
-    }
 search_items();
 
 </script>
