@@ -12,6 +12,7 @@
     }
     $searched_items_array = $_SESSION['searched_items_array']; 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,6 +95,8 @@
         itemsDiv_all_items.innerHTML = contents_all_items.join('\n');
     };
 
+    const chosed_item_dict = [];
+
     function buy_screen() {
 
             document.addEventListener('click', (e) => {
@@ -106,21 +109,19 @@
                     const itemsDiv_screen = document.getElementById("screen");
                     const contents_screen = [];
 
-                    let chosed_item_dict = {
-                        name: item_array[i].name,
-                        price: item_array[i].price,
-                        oldPrice: item_array[i].oldPrice,
-                        image: item_array[i].image,
-                        discount_percent: item_array[i].discount_percent,
-                        sales: item_array[i].sales,
+
+                    if(chosed_item_dict.includes(item_array[i].id) != true) {
+
+                        chosed_item_dict.push(item_array[i].id);
+
                     }
 
                     contents_screen.push(
                         `
                     <div class="searched_card" onclick='buy_screen()' name="card` + i + `">
-                        <img src="` + item_array[i].image + `" class="searched_image" alt="Avatar" onclick="buy_screen()">
+                        <img src="` + item_array[i].image + `" class="searched_image" alt="Avatar">
                         <div class="searched_values" onclick="buy_screen()" >
-                        <h4 class="searched_item_name" onclick='buy_screen()'> `+ item_array[i].name + ` </h4>
+                        <h4 class="searched_item_name"> `+ item_array[i].name + ` </h4>
                         <a class="searched_oldPrice"  > R$ ` + item_array[i].oldPrice + ` </a>
                         <br>
                         <span class="material-symbols-outlined"> arrow_downward </span>
@@ -128,7 +129,7 @@
                         <br>
                         <a class="searched_price" > R$ ` + item_array[i].price + `</a>
                         <br>
-                        <a class="searched_price_" > Ou 4x de R$ ` + (item_array[i].price/4).toFixed(2) + `</a>
+                        <a class="searched_price" > Ou 4x de R$ ` + (item_array[i].price/4).toFixed(2) + `</a>
                         <br>
                         <a class="searched_sales_reviews" > Vendidos: ` + item_array[i].sales + `</a>
                         <br>
@@ -146,6 +147,12 @@
             }
             }); 
     };
+
+    function add_in_cart() {
+        console.log(chosed_item_dict);
+        var chosed_item_dict_related = chosed_item_dict;
+        sessionStorage.setItem("chosed_item_dict_related", JSON.stringify(chosed_item_dict_related));
+    }
 search_items();
 
 </script>

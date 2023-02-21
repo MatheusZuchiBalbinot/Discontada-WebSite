@@ -9,7 +9,7 @@
                 <div class="search_box">
                         <div class="search_bar"> 
                             <form method="GET" name="form" action="main.php" style="display:flex">
-                                <input type="text" id="search_bar_input" name="data" placeholder= "  O que você deseja? " onchange='search_data()'>
+                                <input type="text" id="search_bar_input" name="data" placeholder= "O que você deseja? " onchange='search_data()'>
                                 <button type='button' id="search_button_span"> <span class="material-symbols-outlined">search</span> </button>
 
                                 <?php
@@ -41,7 +41,7 @@
                                             
                                         }
                                     $_SESSION['searched_items_array'] = $variavel_sessão; 
-                                    header("Location: searched_items.php");                                   
+                                    header("Location: searched_items.php?=" . $_GET['search']);                               
                                     } 
                                     else 
                                     {

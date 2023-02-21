@@ -78,7 +78,6 @@ async function card_items() {
                 <br>
                 <a class="sales_reviews" id="`+id_promotions +`" > Vendidos: ` + sales_promotions + `</a>
                 <br>
-
             </div>
             `
         );
