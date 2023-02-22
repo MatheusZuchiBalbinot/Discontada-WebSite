@@ -36,57 +36,70 @@ window.onload = function () {
 }
 
 var obj_item_array = JSON.parse(sessionStorage.obj_item_array);
+// console.log(obj_item_array);
 var obj_chosed_item = JSON.parse(sessionStorage.obj_chosed_item);
+// console.log(obj_chosed_item);
 
 const chosed_item_dict = [];
+const main_items_dict = [];
 
 function add_in_cart() {
     var obj_chosed_item = chosed_item_dict;
     sessionStorage.setItem("obj_chosed_item", JSON.stringify(obj_chosed_item));
-    console.log(obj_chosed_item);
+    // console.log(obj_chosed_item);
 }
 
-// Função que consome os dados do arquivo json, adiciona e exibe os cards individualmente. 
-// console.log(obj_chosed_item); // Passa o id de todos os elementos clicados
-// console.log(obj_item_array); // Passa todos os itens pesquisados
+function remove_in_cart() {
 
-function buy_screen() {
+
+}
+
+
+async function buy_screen() {
+
+    let obj_all_items;
+    const response = await fetch('http://localhost/Projeto_01/items.json');
+    obj_all_items = await response.json();
+
+    var obj_all_items_dict = obj_all_items;
+    sessionStorage.setItem("obj_all_items_dict", JSON.stringify(obj_all_items_dict));
+    // console.log(obj_all_items_dict);
 
     document.addEventListener('click', (e) => {
     var clicked_item = e.target.id;
-    for(var i = 0; i < obj_item_array.length; i++) {
-        if(obj_item_array[i].id == clicked_item) {
+    // console.log(clicked_item);
+    for(var i = 0; i < obj_all_items.length; i++) {
+        if(obj_all_items[i].id == clicked_item) {
             var buy_screen_div = document.getElementById("buy_screen").innerHTML = `<div id="screen"  style="width: 50vw; height: 80vh; background-color: white; color: black; position: fixed; box-shadow: 0 0 0 99999px rgba(0, 0, 0, .8); z-index: 1; justify-content: center; left: 25vw; padding: 0; margin: 0;"></div> `;
             var screen_location =  document.getElementById("screen");
 
             const itemsDiv_screen = document.getElementById("screen");
             const contents_screen = [];
 
-
-            if(chosed_item_dict.includes(obj_item_array[i].id) != true) {
-                chosed_item_dict.push(obj_item_array[i].id);
+            if(chosed_item_dict.includes(obj_all_items[i].id) != true) {
+                chosed_item_dict.push(obj_all_items[i].id);
+                // console.log(chosed_item_dict);
             }
-
 
             contents_screen.push(
                 `
             <div class="searched_card" onclick='buy_screen()' name="card` + i + `">
-                <img src="` + obj_item_array[i].image + `" class="searched_image" alt="Avatar">
+                <img src="` + obj_all_items[i].image + `" class="searched_image" alt="Avatar">
                 <div class="searched_values" onclick="buy_screen()" >
-                <h4 class="searched_item_name"> `+ obj_item_array[i].name + ` </h4>
-                <a class="searched_oldPrice"  > R$ ` + obj_item_array[i].oldPrice + ` </a>
+                <h4 class="searched_item_name"> `+ obj_all_items[i].name + ` </h4>
+                <a class="searched_oldPrice"  > R$ ` + obj_all_items[i].oldPrice + ` </a>
                 <br>
                 <span class="material-symbols-outlined" id="card_span_icon"> arrow_downward </span>
-                <a class="searched_discount_percentage"  > - ` + obj_item_array[i].discount_percent + `%</a>
+                <a class="searched_discount_percentage"  > - ` + obj_all_items[i].discount_percent + `%</a>
                 <br>
-                <a class="searched_price" > R$ ` + obj_item_array[i].price + `</a>
+                <a class="searched_price" > R$ ` + obj_all_items[i].price + `</a>
                 <br>
-                <a class="searched_price" > Ou 4x de R$ ` + (obj_item_array[i].price/4).toFixed(2) + `</a>
+                <a class="searched_price" > Ou 4x de R$ ` + (obj_all_items[i].price/4).toFixed(2) + `</a>
                 <br>
-                <a class="searched_sales_reviews" > Vendidos: ` + obj_item_array[i].sales + `</a>
+                <a class="searched_sales_reviews" > Vendidos: ` + obj_all_items[i].sales + `</a>
                 <br>
                 <div id="clicked_screen_buttons"> 
-                    <button id="add_cart_clicked_screen_button" onclick='add_in_cart()' '>Adicionar ao carrinho</button>
+                    <button id="add_cart_clicked_screen_button" onclick='add_in_cart()''>Adicionar ao carrinho</button>
                     <button type="button" id="skip_clicked_screen_button" onclick='document.getElementById("screen").style.display="none" '> Sair </button>
                 </div>
                 </div>
@@ -108,7 +121,6 @@ async function card_items() {
     const itemsDiv_promotions = document.getElementById("promotions");
     const contents_promotions = [];
 
-
     for(let i = 0; i < 10; i++) {
             
         obj_promotions = obj.sort((a, b) => {
@@ -116,6 +128,12 @@ async function card_items() {
                 return -1;
             }
         });
+
+        if(main_items_dict.includes(obj_promotions[i].id) != true) {
+            main_items_dict.push(obj_promotions[i].id);
+            // console.log(main_items_dict);
+        }
+        
         let id_promotions = obj_promotions[i].id;
         let name_promotions = obj_promotions[i].name;
         let image_promotions = obj_promotions[i].image;
@@ -123,6 +141,7 @@ async function card_items() {
         let price_promotions = obj_promotions[i].price;
         let discount_percent_promotions = obj_promotions[i].discount_percent;
         let sales_promotions = obj_promotions[i].sales;
+
         contents_promotions.push(
             `
                 <div class="card" id="`+id_promotions+`" onclick='buy_screen()' style="width: 230px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
@@ -158,6 +177,11 @@ async function card_items() {
                 return -1;
             }
         });
+
+        if(main_items_dict.includes(obj_promotions[i].id) != true) {
+            main_items_dict.push(obj_promotions[i].id);
+            // console.log(main_items_dict);
+        }
 
         let id_best_sellers = obj_best_sellers[i].id;
         let name_best_sellers = obj_best_sellers[i].name;

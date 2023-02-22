@@ -63,15 +63,17 @@
     const itemsDiv_cart = document.getElementById("cart_items");
     const contents_cart = [];
 
-    var obj_item_array = JSON.parse(sessionStorage.obj_item_array);
-    var obj_chosed_item_a = JSON.parse(sessionStorage.obj_chosed_item);
+    var obj_chosed_item = JSON.parse(sessionStorage.obj_chosed_item);
+    var obj_all_items_dict = JSON.parse(sessionStorage.obj_all_items_dict);
+    // console.log(obj_chosed_item);
+    // console.log(obj_all_items_dict);
+
 
     let items_id = [];
     
     // console.log(obj_item_array); // Passa todos os itens pesquisados
     // console.log(obj_chosed_item); // Passa o id de todos os elementos clicados
 
-    const buy_all_items_length = obj_chosed_item.length;
     const buy_all_items_prices = [];
 
     function buy_all_items() {
@@ -79,22 +81,22 @@
         alert("O valor de contra de todos os produtos do carrinho é: " + buy_all_items_sum);
         };
     
-    for(i = 0; i < obj_item_array.length; i++) {
-        items_id.push(obj_item_array[i].id);
+    for(i = 0; i < obj_all_items_dict.length; i++) {
+        items_id.push(obj_all_items_dict[i].id);
     }
     
     for(x = 0; x < obj_chosed_item.length; x++) {
-        for(i = 0; i < obj_item_array.length; i++) {
+        for(i = 0; i < obj_all_items_dict.length; i++) {
             if(obj_chosed_item[x] == items_id[i]) {
-                let id = obj_item_array[i].id;
-                let name = obj_item_array[i].name;
-                let image = obj_item_array[i].image;
-                let price = obj_item_array[i].price;
-                let oldPrice = obj_item_array[i].oldPrice;
-                let discount_percent = obj_item_array[i].discount_percent;
-                let sales = obj_item_array[i].sales;
+                let id = obj_all_items_dict[i].id;
+                let name = obj_all_items_dict[i].name;
+                let image = obj_all_items_dict[i].image;
+                let price = obj_all_items_dict[i].price;
+                let oldPrice = obj_all_items_dict[i].oldPrice;
+                let discount_percent = obj_all_items_dict[i].discount_percent;
+                let sales = obj_all_items_dict[i].sales;
 
-                buy_all_items_prices.push(obj_item_array[i].price);
+                buy_all_items_prices.push(obj_all_items_dict[i].price);
 
                 contents_cart.push(
                     `
@@ -122,6 +124,7 @@
         }
     }};
 </script>
+   
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </html>

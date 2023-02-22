@@ -80,7 +80,13 @@
         const itemsDiv_all_items = document.getElementById("all_items");
         const contents_all_items = [];
 
+
         for (var i = 0; i < item_array.length; i++){
+
+            if(main_items_dict.includes(item_array[i].id) != true) {
+                main_items_dict.push(item_array[i].id);
+                // console.log(main_items_dict); // Está correto, o problema é o ID que está sendo adicionado errado;
+            }
 
             let id = item_array[i].id;
             let name = item_array[i].name;

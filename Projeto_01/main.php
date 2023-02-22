@@ -37,7 +37,7 @@
 
         <div class="main">
 
-            <div id="buy_screen"></div>
+            <div id="buy_screen"> </div>
 
             <div class="slider">
 
@@ -53,7 +53,7 @@
 
             </div>
 
-            <h1 id="promotions_title"> As 10 promoções mais quentes </h1>
+            <div id="promotions_title_div"> <h1 id="promotions_title"> As 10 promoções mais quentes </h1> </div>
 
             <div id="promotions">
                     
@@ -79,7 +79,8 @@
         location.href = 'main.php?search=' + search.value;
         console.log(search);
     };
-
+    card_items()
+    
 </script>
 
 
