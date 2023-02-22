@@ -11,6 +11,7 @@
         $login_true = $_SESSION['login'];
     }
     $searched_items_array = $_SESSION['searched_items_array']; 
+    
 ?>
 
 <!DOCTYPE html>

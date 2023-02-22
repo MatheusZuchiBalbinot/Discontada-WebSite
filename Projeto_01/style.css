@@ -84,8 +84,8 @@ header {
         }
 
         #search_button_span:hover {
+            background-color: rgb(56, 50, 50);
             color: white;
-            background-color: #be2f3e;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 1px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
         }
@@ -139,7 +139,7 @@ header {
     }
 
         .header_n3 span:hover {
-            background-color: #be2f3e;
+            background-color: rgb(56, 50, 50);
             color: white;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 1px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;        }
 
@@ -418,6 +418,29 @@ header {
         color: #255a66;
     }
 
+    #buy_cart_items {
+        text-align: center;
+        padding: 1vw;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    #buy_cart_items .button_cart_items {
+        padding: 1.5vw;
+        width: 50%;
+        border-radius: 3rem;
+        border: none;
+        font-size: 1.5vw;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+    }
+
+    #buy_cart_items .button_cart_items:hover {
+        background-color: rgb(56, 50, 50);
+        color: white;
+        cursor: pointer;
+    }
+
 
 
 
@@ -426,6 +449,7 @@ footer {
     display: inline-flex;
     padding: 1.2vw;
     justify-content: center;
+    width: 100%;
 
 }
     footer ul {

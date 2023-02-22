@@ -40,11 +40,11 @@ var obj_chosed_item = JSON.parse(sessionStorage.obj_chosed_item);
 
 const chosed_item_dict = [];
 
-    function add_in_cart() {
-        var obj_chosed_item = chosed_item_dict;
-        sessionStorage.setItem("obj_chosed_item", JSON.stringify(obj_chosed_item));
-        console.log(obj_chosed_item);
-    }
+function add_in_cart() {
+    var obj_chosed_item = chosed_item_dict;
+    sessionStorage.setItem("obj_chosed_item", JSON.stringify(obj_chosed_item));
+    console.log(obj_chosed_item);
+}
 
 // Função que consome os dados do arquivo json, adiciona e exibe os cards individualmente. 
 // console.log(obj_chosed_item); // Passa o id de todos os elementos clicados
@@ -125,21 +125,22 @@ async function card_items() {
         let sales_promotions = obj_promotions[i].sales;
         contents_promotions.push(
             `
-            <div class="card" id="`+id_promotions +`" onclick='buy_screen()' style="width: 230px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
-                <img src="` + image_promotions + `" class="image" id="`+id_promotions +`" alt="Avatar" style="width:100%; height: 60%; onclick="buy_screen()">
-                <h4 class="item_name" id="`+id_promotions +`" onclick='buy_screen()'> `+ name_promotions + ` </h4>
-                <div class="values" id="`+id_promotions +`" onclick="buy_screen()" >
-                <a class="oldPrice" id="`+id_promotions +`" > R$ ` + oldPrice_promotions + ` reais </a>
-                <br>
-                <span class="material-symbols-outlined"> arrow_downward </span>
-                <a class="discount_percentage" id="`+id_promotions +`" > - ` + discount_percent_promotions + `%</a>
-                <br>
-                <a class="price" id="`+id_promotions +`" > R$ ` + price_promotions + ` reais</a>
+                <div class="card" id="`+id_promotions+`" onclick='buy_screen()' style="width: 230px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
+                    <img src="` + image_promotions + `" class="image" id="`+id_promotions+`" alt="Avatar" style="width:100%; height: 60%; onclick="buy_screen()">
+                    <h4 class="item_name" id="`+id_promotions+`" onclick='buy_screen()'> `+ name_promotions + ` </h4>
+                    <div class="values" id="`+id_promotions+`" onclick="buy_screen()" >
+                    <a class="oldPrice" id="`+id_promotions+`" > R$ ` + oldPrice_promotions + ` reais </a>
+                    <br>
+                    <span class="material-symbols-outlined" id="card_span_icon"> arrow_downward </span>
+                    <a class="discount_percentage" id="`+id_promotions+`" > - ` + discount_percent_promotions + `%</a>
+                    <br>
+                    <a class="price" id="`+id_promotions+`" > R$ ` + price_promotions + ` reais</a>
+                    </div>
+                    <br>
+                    <a class="sales_reviews" id="`+id_promotions+`" > Vendidos: ` + sales_promotions + `</a>
+                    <br>
+
                 </div>
-                <br>
-                <a class="sales_reviews" id="`+id_promotions +`" > Vendidos: ` + sales_promotions + `</a>
-                <br>
-            </div>
             `
         );
 
