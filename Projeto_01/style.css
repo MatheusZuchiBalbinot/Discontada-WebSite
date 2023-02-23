@@ -311,7 +311,7 @@ header {
     #screen .searched_sales_reviews {
         position: absolute;
         padding: 1vw;
-        top: 10%;
+        top: 15%;
         right: 4%;
     }
 
@@ -398,7 +398,7 @@ header {
     }
 
     #config_select_buttons {
-        color: rgb(175, 235, 243);
+        color: whitesmoke;
         background-color: rgb(56, 50, 50);
         display: none;
         position: absolute;
@@ -406,7 +406,7 @@ header {
         width: 20%;
     }
 
-    .config_button:hover + #config_select_buttons {display: block; }
+    .config_button:hover + #config_select_buttons {display: block;}
     #config_select_buttons:hover {display: block;}
 
     #controller_options {
@@ -441,6 +441,22 @@ header {
         cursor: pointer;
     }
 
+    .remove_cart_button {
+        position: absolute;
+        bottom: -8%;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0.5vw;
+        border-radius: 3vw;
+        border: none;
+        cursor: pointer;
+        
+    }
+
+    .remove_cart_button:hover {
+        background-color: rgb(56, 50, 50);
+        color: white;
+    }
 
 
 

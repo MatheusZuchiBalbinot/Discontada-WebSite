@@ -38,15 +38,15 @@
             <h1 id="all_items_title"> Itens encontrados:  </h1>
 
             <div id="controller_options"> 
-                <button type="button" class="config_button"> Ordenar por <span class="material-symbols-outlined" id="menu_icon" style="margin-left: 0.5rem;  ">menu</span></button>
-                <div id="config_select_buttons" style="padding: 1vw;"> 
-                    <input type="radio" id="lower_value"> Ordenar pelo mais barato </input>
-                    <br>
-                    <input type="radio" id="highiest_value"> Ordenar pelo mais caro </input>
-                    <br>
-                    <input type="radio" id="best_seller"> Ordenar pelo mais vendido </input>
-                    <br>
-                    <input type="radio" id="biggest_discount"> Ordenar pelo maior desconto </input>
+                <button type="button" class="config_button" onclick="searched_item_config()"> Ordenar por <span class="material-symbols-outlined" id="menu_icon" style="margin-left: 0.5rem;  ">menu</span></button>
+                <div id="config_select_buttons" onclick="searched_item_config()" style="padding: 1vw;"> 
+                        <input type="radio" name="radio-btn" id="lower_value"> Ordenar pelo mais barato </input>
+                        <br>
+                        <input type="radio" name="radio-btn" id="highiest_value"> Ordenar pelo mais caro </input>
+                        <br>
+                        <input type="radio" name="radio-btn" id="best_seller"> Ordenar pelo mais vendido </input>
+                        <br>
+                        <input type="radio" name="radio-btn" id="biggest_discount"> Ordenar pelo maior desconto </input>
                 </div>
             </div>
             
@@ -65,7 +65,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script>
 
-    
 
     <?php $searched_items_array = $_SESSION['searched_items_array']; ?>
     var search = document.getElementById("search_bar_input");
@@ -75,7 +74,67 @@
     };
     const item_array = <?php echo json_encode($searched_items_array); ?>;
 
+    let obj = [];
+    obj = item_array;
+
+    function searched_item_config() {
+        if(document.getElementById('lower_value').checked == true) {
+                for(let i = 0; i < obj_item_array.length; i++) {
+                
+                obj = obj_item_array.sort((a, b) => {
+                    if (a.price < b.price) {
+                        return -1;
+                    }
+                });
+            } 
+            document.getElementById('lower_value').checked = true;
+            window.location.reload();
+        };
+        if(document.getElementById('highiest_value').checked) {
+            for(let i = 0; i < obj_item_array.length; i++) {
+            
+            obj = obj_item_array.sort((a, b) => {
+                if (a.price > b.price) {
+                    return -1;
+                }
+                });
+            } 
+            document.getElementById('highiest_value').checked = true;
+            window.location.reload();
+        };
+        if(document.getElementById('best_seller').checked) {
+            for(let i = 0; i < obj_item_array.length; i++) {
+            
+            obj = obj_item_array.sort((a, b) => {
+                if (a.sales > b.sales) {
+                    return -1;
+                }
+                });
+            } 
+            document.getElementById('best_seller').checked = true;
+            window.location.reload();
+        };
+        if(document.getElementById('biggest_discount').checked) {
+            for(let i = 0; i < obj_item_array.length; i++) {
+            
+            obj = obj_item_array.sort((a, b) => {
+                if (a.discount_percent > b.discount_percent) {
+                    return -1;
+                }
+
+                });
+            } 
+            document.getElementById('biggest_discount').checked = true;
+            window.location.reload();
+        };
+        var obj_storage = obj;
+        sessionStorage.setItem("obj_storage", JSON.stringify(obj_storage));
+        // console.log(obj_storage);
+    }
+
     function search_items() {
+
+        var obj_storage = JSON.parse(sessionStorage.obj_storage);
 
         const itemsDiv_all_items = document.getElementById("all_items");
         const contents_all_items = [];
@@ -88,13 +147,13 @@
                 // console.log(main_items_dict); // Está correto, o problema é o ID que está sendo adicionado errado;
             }
 
-            let id = item_array[i].id;
-            let name = item_array[i].name;
-            let image = item_array[i].image;
-            let oldPrice = item_array[i].oldPrice;
-            let price = item_array[i].price;
-            let discount = item_array[i].discount_percent;
-            let sales = item_array[i].sales;
+            let id = obj_storage[i].id;
+            let name = obj_storage[i].name;
+            let image = obj_storage[i].image;
+            let oldPrice = obj_storage[i].oldPrice;
+            let price = obj_storage[i].price;
+            let discount = obj_storage[i].discount_percent;
+            let sales = obj_storage[i].sales;
 
 
             contents_all_items.push(
@@ -124,7 +183,7 @@
 
     var obj_item_array = item_array;
     sessionStorage.setItem("obj_item_array", JSON.stringify(obj_item_array));
-search_items();
+    search_items();
 
 </script>
 </html>

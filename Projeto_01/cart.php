@@ -57,6 +57,8 @@
 
 <script>
 
+    const buy_all_items_prices = [];
+
     <?php $searched_items_array = $_SESSION['searched_items_array']; ?>
     const item_array = <?php echo json_encode($searched_items_array); ?>;
 
@@ -65,21 +67,34 @@
 
     var obj_chosed_item = JSON.parse(sessionStorage.obj_chosed_item);
     var obj_all_items_dict = JSON.parse(sessionStorage.obj_all_items_dict);
-    // console.log(obj_chosed_item);
-    // console.log(obj_all_items_dict);
-
+    var obj_removed_cart = JSON.parse(sessionStorage.obj_removed_cart);
+    var obj_removed_cart = obj_chosed_item;
 
     let items_id = [];
-    
+
+    // console.log(obj_all_items_dict); // Passa todos os items de items.json
     // console.log(obj_item_array); // Passa todos os itens pesquisados
     // console.log(obj_chosed_item); // Passa o id de todos os elementos clicados
 
-    const buy_all_items_prices = [];
+    function remove_in_cart() {
+        document.addEventListener('click', (e) => {
+        var clicked_item = e.target.id;
+        console.log('Item clicado: '+clicked_item);
+        console.log('Itens dentro do carrinho: '+obj_chosed_item);
+        const index = obj_chosed_item.indexOf(clicked_item);
+        var obj_removed_cart = obj_chosed_item.splice(index, 1);
+        sessionStorage.setItem("obj_removed_cart", JSON.stringify(obj_removed_cart));
+        console.log('Item removido: '+obj_removed_cart);
+        console.log('Itens dentro do carrinho depois da remoção: '+obj_chosed_item);
+
+        });
+        // window.location.reload();
+    }
 
     function buy_all_items() {
         let buy_all_items_sum = buy_all_items_prices.reduce((a, b) => a + b, 0)
         alert("O valor de contra de todos os produtos do carrinho é: " + buy_all_items_sum);
-        };
+    };
     
     for(i = 0; i < obj_all_items_dict.length; i++) {
         items_id.push(obj_all_items_dict[i].id);
@@ -87,6 +102,7 @@
     
     for(x = 0; x < obj_chosed_item.length; x++) {
         for(i = 0; i < obj_all_items_dict.length; i++) {
+            
             if(obj_chosed_item[x] == items_id[i]) {
                 let id = obj_all_items_dict[i].id;
                 let name = obj_all_items_dict[i].name;
@@ -100,7 +116,7 @@
 
                 contents_cart.push(
                     `
-                        <div class="card" id="`+id+`" onclick='buy_screen()' style="width: 230px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
+                        <div class="card" id="`+id+`" onclick='buy_screen()' style="width: 280px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
                             <img src="` + image + `" class="image" id="`+id+`" alt="Avatar" style="width:100%; height: 60%; onclick="buy_screen()">
                             <h4 class="item_name" id="`+id+`" onclick='buy_screen()'> `+ name + ` </h4>
                             <div class="values" id="`+id+`" onclick="buy_screen()" >
@@ -114,6 +130,7 @@
                             <br>
                             <a class="sales_reviews" id="`+id+`" > Vendidos: ` + sales + `</a>
                             <br>
+                            <button type="button" class="remove_cart_button" id="`+id+`" onclick='remove_in_cart()'> Remover do Carrinho </button>
 
                         </div>
                     `

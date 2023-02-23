@@ -35,13 +35,13 @@ window.onload = function () {
     navigation_slider_previous();
 }
 
+const chosed_item_dict = [];
+const main_items_dict = [];
+
 var obj_item_array = JSON.parse(sessionStorage.obj_item_array);
 // console.log(obj_item_array);
 var obj_chosed_item = JSON.parse(sessionStorage.obj_chosed_item);
 // console.log(obj_chosed_item);
-
-const chosed_item_dict = [];
-const main_items_dict = [];
 
 function add_in_cart() {
     var obj_chosed_item = chosed_item_dict;
@@ -49,14 +49,7 @@ function add_in_cart() {
     // console.log(obj_chosed_item);
 }
 
-function remove_in_cart() {
-
-
-}
-
-
 async function buy_screen() {
-
     let obj_all_items;
     const response = await fetch('http://localhost/Projeto_01/items.json');
     obj_all_items = await response.json();
@@ -94,7 +87,7 @@ async function buy_screen() {
                 <br>
                 <a class="searched_price" > R$ ` + obj_all_items[i].price + `</a>
                 <br>
-                <a class="searched_price" > Ou 4x de R$ ` + (obj_all_items[i].price/4).toFixed(2) + `</a>
+                <a class="searched_price_parts" > Ou 4x de R$ ` + (obj_all_items[i].price/4).toFixed(2) + `</a>
                 <br>
                 <a class="searched_sales_reviews" > Vendidos: ` + obj_all_items[i].sales + `</a>
                 <br>
@@ -120,6 +113,7 @@ async function card_items() {
 
     const itemsDiv_promotions = document.getElementById("promotions");
     const contents_promotions = [];
+
 
     for(let i = 0; i < 10; i++) {
             
