@@ -458,6 +458,21 @@ header {
         color: white;
     }
 
+    #alert_changes {
+        justify-content: center;
+        text-align: center;
+        position: fixed;
+        margin: 0 auto;
+        left: 10%;
+        width: 80%;
+        height: 10vh;
+        bottom: 0%;
+        background-color: rgb(56, 50, 50);
+        color: whitesmoke;
+        border-top-left-radius: 7rem;
+        border-top-right-radius: 7rem;
+    }
+
 
 
 footer {

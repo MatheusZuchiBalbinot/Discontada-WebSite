@@ -132,6 +132,8 @@
         // console.log(obj_storage);
     }
 
+    var obj_storage = obj;
+
     function search_items() {
 
         var obj_storage = JSON.parse(sessionStorage.obj_storage);

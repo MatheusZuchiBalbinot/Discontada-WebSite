@@ -46,6 +46,8 @@ var obj_chosed_item = JSON.parse(sessionStorage.obj_chosed_item);
 function add_in_cart() {
     var obj_chosed_item = chosed_item_dict;
     sessionStorage.setItem("obj_chosed_item", JSON.stringify(obj_chosed_item));
+    var obj_removed_cart = obj_chosed_item;
+    sessionStorage.setItem("obj_removed_cart", JSON.stringify(obj_removed_cart));
     // console.log(obj_chosed_item);
 }
 
@@ -105,6 +107,15 @@ async function buy_screen() {
     }
     }); 
 };
+
+
+
+function alert_add_and_remove() {
+        var alert_screen = document.getElementsByClassName('container').innerHTML = `<div id="alert_changes"> </div>`;
+        document.getElementById('alert_changes').innerHTML = `<a> Um item foi adicionado ao carrinho</a>`;
+}
+
+
 
 async function card_items() {
     let obj;

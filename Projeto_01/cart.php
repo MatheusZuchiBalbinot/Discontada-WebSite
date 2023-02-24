@@ -44,7 +44,7 @@
             <div id="buy_cart_items">
                 <button type="button" class="button_cart_items" onclick="buy_all_items()"> Comprar todos os itens do carrinho </button>
             <div>
-
+        
         </div>
 
 
@@ -65,10 +65,7 @@
     const itemsDiv_cart = document.getElementById("cart_items");
     const contents_cart = [];
 
-    var obj_chosed_item = JSON.parse(sessionStorage.obj_chosed_item);
-    var obj_all_items_dict = JSON.parse(sessionStorage.obj_all_items_dict);
-    var obj_removed_cart = JSON.parse(sessionStorage.obj_removed_cart);
-    var obj_removed_cart = obj_chosed_item;
+    var obj_all_items_dict = JSON.parse(sessionStorage.obj_all_items_dict);    
 
     let items_id = [];
 
@@ -77,6 +74,7 @@
     // console.log(obj_chosed_item); // Passa o id de todos os elementos clicados
 
     function remove_in_cart() {
+    
         document.addEventListener('click', (e) => {
         var clicked_item = e.target.id;
         console.log('Item clicado: '+clicked_item);
@@ -86,9 +84,10 @@
         sessionStorage.setItem("obj_removed_cart", JSON.stringify(obj_removed_cart));
         console.log('Item removido: '+obj_removed_cart);
         console.log('Itens dentro do carrinho depois da remoção: '+obj_chosed_item);
+        sessionStorage.setItem("obj_chosed_item", JSON.stringify(obj_chosed_item));
 
         });
-        // window.location.reload();
+        window.location.reload();
     }
 
     function buy_all_items() {
@@ -96,50 +95,57 @@
         alert("O valor de contra de todos os produtos do carrinho é: " + buy_all_items_sum);
     };
     
-    for(i = 0; i < obj_all_items_dict.length; i++) {
-        items_id.push(obj_all_items_dict[i].id);
-    }
-    
-    for(x = 0; x < obj_chosed_item.length; x++) {
+    function show_cart_items() {
+        var obj_chosed_item = JSON.parse(sessionStorage.obj_chosed_item); 
+        var obj_removed_cart = JSON.parse(sessionStorage.obj_removed_cart);
+        // console.log(obj_removed_cart);
+        // console.log(obj_chosed_item);
         for(i = 0; i < obj_all_items_dict.length; i++) {
-            
-            if(obj_chosed_item[x] == items_id[i]) {
-                let id = obj_all_items_dict[i].id;
-                let name = obj_all_items_dict[i].name;
-                let image = obj_all_items_dict[i].image;
-                let price = obj_all_items_dict[i].price;
-                let oldPrice = obj_all_items_dict[i].oldPrice;
-                let discount_percent = obj_all_items_dict[i].discount_percent;
-                let sales = obj_all_items_dict[i].sales;
-
-                buy_all_items_prices.push(obj_all_items_dict[i].price);
-
-                contents_cart.push(
-                    `
-                        <div class="card" id="`+id+`" onclick='buy_screen()' style="width: 280px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
-                            <img src="` + image + `" class="image" id="`+id+`" alt="Avatar" style="width:100%; height: 60%; onclick="buy_screen()">
-                            <h4 class="item_name" id="`+id+`" onclick='buy_screen()'> `+ name + ` </h4>
-                            <div class="values" id="`+id+`" onclick="buy_screen()" >
-                            <a class="oldPrice" id="`+id+`" > R$ ` + oldPrice + ` reais </a>
-                            <br>
-                            <span class="material-symbols-outlined" id="card_span_icon"> arrow_downward </span>
-                            <a class="discount_percentage" id="`+id+`" > - ` + discount_percent + `%</a>
-                            <br>
-                            <a class="price" id="`+id+`" > R$ ` + price + ` reais</a>
-                            </div>
-                            <br>
-                            <a class="sales_reviews" id="`+id+`" > Vendidos: ` + sales + `</a>
-                            <br>
-                            <button type="button" class="remove_cart_button" id="`+id+`" onclick='remove_in_cart()'> Remover do Carrinho </button>
-
-                        </div>
-                    `
-                
-                    );
-                itemsDiv_cart.innerHTML = contents_cart.join('\n');
-
+            items_id.push(obj_all_items_dict[i].id);
         }
-    }};
+        
+        for(x = 0; x < obj_chosed_item.length; x++) {
+            for(i = 0; i < obj_all_items_dict.length; i++) {
+                
+                if(obj_chosed_item[x] == items_id[i]) {
+                    let id = obj_all_items_dict[i].id;
+                    let name = obj_all_items_dict[i].name;
+                    let image = obj_all_items_dict[i].image;
+                    let price = obj_all_items_dict[i].price;
+                    let oldPrice = obj_all_items_dict[i].oldPrice;
+                    let discount_percent = obj_all_items_dict[i].discount_percent;
+                    let sales = obj_all_items_dict[i].sales;
+
+                    buy_all_items_prices.push(obj_all_items_dict[i].price);
+
+                    contents_cart.push(
+                        `
+                            <div class="card" id="`+id+`" onclick='buy_screen()' style="width: 230px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
+                                <img src="` + image + `" class="image" id="`+id+`" alt="Avatar" style="width:100%; height: 60%; onclick="buy_screen()">
+                                <h4 class="item_name" id="`+id+`" onclick='buy_screen()'> `+ name + ` </h4>
+                                <div class="values" id="`+id+`" onclick="buy_screen()" >
+                                <a class="oldPrice" id="`+id+`" > R$ ` + oldPrice + ` reais </a>
+                                <br>
+                                <span class="material-symbols-outlined" id="card_span_icon"> arrow_downward </span>
+                                <a class="discount_percentage" id="`+id+`" > - ` + discount_percent + `%</a>
+                                <br>
+                                <a class="price" id="`+id+`" > R$ ` + price + ` reais</a>
+                                </div>
+                                <br>
+                                <a class="sales_reviews" id="`+id+`" > Vendidos: ` + sales + `</a>
+                                <br>
+                                <button type="button" class="remove_cart_button" id="`+id+`" onclick='remove_in_cart()'> Remover do Carrinho </button>
+
+                            </div>
+                        `
+                    
+                        );
+                    itemsDiv_cart.innerHTML = contents_cart.join('\n');
+
+            }
+        }};
+    };
+    show_cart_items();
 </script>
    
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
