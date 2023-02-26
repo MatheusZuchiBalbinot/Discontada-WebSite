@@ -8,8 +8,10 @@
         $password = $_POST['password'];
         $password_confirm = $_POST['password_confirm'];
 
-        $insert = mysqli_query($connection, "INSERT INTO user_data(login, password, password_confirm) VALUES('$login','$password', '$password_confirm') ");  
+        $insert = mysqli_query($connection, "INSERT INTO user_data(login, password, password_confirm) VALUES('$login','$password', '$password_confirm') "); 
+        header("Location: login.php"); 
     }
+
 
 ?>
 
@@ -32,26 +34,27 @@
         <div class="login_form">\
         \
             <div class="image">\
-                <img src="Images/Logotipo(black mode).png">\
+                <img src="Images/Logotipo Online Shopping Azul Simples.png" style="width: 35vw; height: auto;">\
             </div>\
             <form class="login_inputs" action="register.php" method="POST">\
                 <h1> Registrar </h1>\
                 <label for="login" class="lgn_label"> Login: </label>\
                 <br>\
-                <input type="text" class="lgn_button" placeholder="Digite o seu Login: " name="login">\
+                <input type="text" class="lgn_button" placeholder="Digite o seu Login " name="login">\
                 \
                 <br>\
                 <label for="password" class="lgn_label"> Senha: </label>\
                 <br>\
-                <input type="password" class="lgn_button" placeholder="Digite a sua senha: " name="password">\
+                <input type="password" class="lgn_button" placeholder="Digite a sua senha " name="password">\
                 <br>\
                 \
                 <label for="password_confirm" class="lgn_label"> Senha: </label>\
                 <br>\
-                <input type="password" class="lgn_button" placeholder="Digite a sua senha: " name="password_confirm">\
+                <input type="password" class="lgn_button" placeholder="Confirme a sua senha " name="password_confirm">\
                 <br>\
                 \
                 <input type="submit" value="Submit" name="submit" id="submit">\
+                <input type="button" value="Já possui uma conta?" onClick="location.href=`login.php` ">\
 \
             </form>\
         </div>\

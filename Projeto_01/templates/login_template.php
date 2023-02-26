@@ -2,7 +2,7 @@
         <div class="login_form">
 
             <div class="image">
-                <img src="Images/Logotipo(black mode).png" onClick="location.href='main.php'">    
+                <img src="Images/Logotipo Online Shopping Azul Simples.png" style="width: 35vw; height: auto;">    
             </div>
             <form class="login_inputs" action="login_validation.php" method="POST">
                 <h1> Login </h1>

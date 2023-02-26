@@ -44,6 +44,7 @@ var obj_chosed_item = JSON.parse(sessionStorage.obj_chosed_item);
 // console.log(obj_chosed_item);
 
 function add_in_cart() {
+    alert_add_item();
     var obj_chosed_item = chosed_item_dict;
     sessionStorage.setItem("obj_chosed_item", JSON.stringify(obj_chosed_item));
     var obj_removed_cart = obj_chosed_item;
@@ -70,6 +71,9 @@ async function buy_screen() {
 
             const itemsDiv_screen = document.getElementById("screen");
             const contents_screen = [];
+
+            var alert_item_name = obj_all_items[i].name;
+            sessionStorage.setItem("alert_item_name", JSON.stringify(alert_item_name));
 
             if(chosed_item_dict.includes(obj_all_items[i].id) != true) {
                 chosed_item_dict.push(obj_all_items[i].id);
@@ -110,9 +114,11 @@ async function buy_screen() {
 
 
 
-function alert_add_and_remove() {
-        var alert_screen = document.getElementsByClassName('container').innerHTML = `<div id="alert_changes"> </div>`;
-        document.getElementById('alert_changes').innerHTML = `<a> Um item foi adicionado ao carrinho</a>`;
+function alert_add_item() {
+        var alert_item_name = JSON.parse(sessionStorage.alert_item_name);
+        console.log(alert_item_name);
+        document.getElementById('buy_screen').innerHTML = `<div id="alert_changes"> </div>`;
+        document.getElementById('alert_changes').innerHTML = `<a> O item <b>`+ alert_item_name +`</b> foi adicionado ao carrinho com sucesso! </a>`;
 }
 
 
@@ -227,5 +233,4 @@ var search = document.getElementById("search_bar_input");
     function search_data() {
         location.href = 'searched_items.php?search=' + search.value;
     };
-
 card_items();

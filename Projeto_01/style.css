@@ -8,13 +8,17 @@
 .container {
     display: grid;
     grid-template-columns: 0.5fr 1.5fr 0.5fr;
-    grid-template-rows: 15vh auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-areas: 
         "header header header"
         "main main main"
         "footer footer footer"
         ;
 }
+
+
+/* CABEÇALHO */
+/* ONDE TÊM A LOGO, BARRA DE PESQUISA E OS ICONES */
 
 header {
     grid-area: header;
@@ -83,6 +87,10 @@ header {
             font-size: 0;
         }
 
+        #search_button_span span {
+            font-size: 2vw;
+        }
+
         #search_button_span:hover {
             background-color: rgb(56, 50, 50);
             color: white;
@@ -143,6 +151,41 @@ header {
             color: white;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 1px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;        }
 
+    @media screen and (max-width:1048px) {
+    
+        header {
+            grid-template-columns: 0;
+        }
+        .header_n1 img {
+            display: none;
+        }
+
+        .header_n2 {
+            padding: 2vh;
+        }
+
+        .header_n3 #welcome {
+            font-size: 1.5vh;
+        }
+
+        .header_n3 #header_n3_icon {
+            font-size: 3vh;
+        }
+        
+        #search_bar_input {
+            height: 4vh;
+            width: auto;
+            font-size: 2.5vw;
+        }
+        #search_button_span {
+            width: 7vw;
+        }
+    }
+
+/* PARTE PRINCIPAL DO PROJETO, ONDE SERÃO INSERIDOS OS CARDS E TEXTOS REFERENTES */
+
+
+
 .main {
     grid-area: main;
     display: grid;
@@ -199,6 +242,23 @@ header {
                     width: 100%;
                 }
 
+    @media screen and (max-width:1048px) {
+        .slider {
+            height: 20vh;
+            margin-top: 0;
+        }
+
+        .slide > #next_button, .slide > #previous_button {
+            position: absolute;
+            top: 18.5%; 
+            font-size: 4vh;
+        }
+
+        .slide > #next_button {
+            position: absolute;
+            left: 82vw;
+        }
+    }
 
     body > div > div > h1, #promotions_title {
         font-size: 2.5vw;
@@ -207,6 +267,13 @@ header {
         font-family: 'Montserrat', sans-serif; 
     }
 
+    @media screen and (max-width:1048px) {
+        #promotions_title, #cart_title, #all_items_title {
+            font-size: 3.5vw;
+        }
+    }
+
+    
     #promotions, #best_sellers, #all_items, #cart_items {
         position: relative;
         display: flex;
@@ -234,6 +301,7 @@ header {
     .card .sales_reviews {
         position: relative;
         margin-left: 0.3vw;
+        font-size: 0.9vw;
     }
 
     .card .oldPrice {
@@ -253,6 +321,7 @@ header {
         color: green;
         text-align: center;
         justify-content: center;
+        font-size: 0.9vw;
     }
 
     .card .discount_percentage {
@@ -262,7 +331,42 @@ header {
     }
 
     .card h4 {
+        font-size: 1vw;
         margin: 0.3vw;
+    }
+
+
+    @media screen and (max-width:1048px) {
+        .card {
+          max-width: 60vw;
+          height: auto;
+        }
+        .card h4 {
+            font-size: 4vw;
+        }
+        .card .discount_percentage {
+            font-size: 4vw;
+            top: 0vw;
+        }
+        .card .sales_reviews {
+            font-size: 4vw;
+        }
+    
+        .card .oldPrice {
+            font-size: 4vw;
+        }
+    
+        .card .price {
+            font-size: 4vw;
+        }
+    
+        .card .values {
+            font-size: 4vw;
+        }
+
+        .card #card_span_icon {
+            font-size: 4vw;
+        }
     }
 
     #screen .searched_card {
@@ -305,6 +409,7 @@ header {
     }
     
     #screen .searched_price, .searched_discount_percentage, #card_span_icon {
+        font-size: 0.9vw;
         color: green;
     }
 
@@ -409,6 +514,19 @@ header {
     .config_button:hover + #config_select_buttons {display: block;}
     #config_select_buttons:hover {display: block;}
 
+    @media screen and (max-width:1048px) {
+        .config_button {
+            white-space: nowrap;
+            width: 140%;
+            font-size: 1.5vh;
+        }
+        .config_button:hover + #config_select_buttons {
+            width: 28%;
+            font-size: 1.5vh;
+        }
+
+    }
+
     #controller_options {
         width: 20%;
         margin: 0 auto;
@@ -465,12 +583,21 @@ header {
         margin: 0 auto;
         left: 10%;
         width: 80%;
-        height: 10vh;
+        height: 8vh;
         bottom: 0%;
         background-color: rgb(56, 50, 50);
         color: whitesmoke;
         border-top-left-radius: 7rem;
         border-top-right-radius: 7rem;
+        padding: 2vw;
+        z-index: 1;
+    }
+
+    #alert_changes a {
+        height: 100%;
+        margin: 0 auto;
+        align-items: center;
+        font-size: 1.5vw;
     }
 
 
@@ -500,3 +627,14 @@ footer {
         footer ul li#subtitle {
             font-weight: bold;
         }
+
+    @media screen and (max-width:1048px) {
+        footer ul {
+            margin-top: 1vh;
+        }
+        footer ul li {
+            font-size: 1vh;
+            margin-top: 1vw;
+            padding: 0.2vh;
+        }
+    }

@@ -40,7 +40,7 @@
             <div id="controller_options"> 
                 <button type="button" class="config_button" onclick="searched_item_config()"> Ordenar por <span class="material-symbols-outlined" id="menu_icon" style="margin-left: 0.5rem;  ">menu</span></button>
                 <div id="config_select_buttons" onclick="searched_item_config()" style="padding: 1vw;"> 
-                        <input type="radio" name="radio-btn" id="lower_value"> Ordenar pelo mais barato </input>
+                        <input type="radio" name="radio-btn1" id="lower_value"> Ordenar pelo mais barato </input>
                         <br>
                         <input type="radio" name="radio-btn" id="highiest_value"> Ordenar pelo mais caro </input>
                         <br>
@@ -75,9 +75,15 @@
     const item_array = <?php echo json_encode($searched_items_array); ?>;
 
     let obj = [];
-    obj = item_array;
 
     function searched_item_config() {
+        //Botei checked no lower_value;
+        //A página não atualiza sozinha quando eu faço uma pesquisa por padrão, tem que arrumar isso;
+        //Quando eu faço multiplas pesquisas sem atualizar a página ele buga;
+        
+        // console.log('a');
+        // obj = obj_item_array;
+
         if(document.getElementById('lower_value').checked == true) {
                 for(let i = 0; i < obj_item_array.length; i++) {
                 
@@ -132,8 +138,6 @@
         // console.log(obj_storage);
     }
 
-    var obj_storage = obj;
-
     function search_items() {
 
         var obj_storage = JSON.parse(sessionStorage.obj_storage);
@@ -186,6 +190,7 @@
     var obj_item_array = item_array;
     sessionStorage.setItem("obj_item_array", JSON.stringify(obj_item_array));
     search_items();
+    searched_item_config();
 
 </script>
 </html>

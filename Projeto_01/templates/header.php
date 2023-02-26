@@ -66,8 +66,8 @@
                         echo "<a id='welcome'> Bem vindo/a <i> $login_true </i>  </a>";
                     }
                 ?>
-                <span class='material-symbols-outlined' onClick="location.href='logout.php'"> Logout </span>
-                <span class="material-symbols-outlined" onClick="location.href='cart.php'"> Shopping_cart </span>
+                <span class='material-symbols-outlined' id="header_n3_icon" onClick="location.href='logout.php'"> Logout </span>
+                <span class="material-symbols-outlined" id="header_n3_icon" onClick="location.href='cart.php'"> Shopping_cart </span>
             </div>
             
         </header>
