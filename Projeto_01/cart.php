@@ -56,7 +56,6 @@
 </body>
 
 <script>
-
     const buy_all_items_prices = [];
 
     <?php $searched_items_array = $_SESSION['searched_items_array']; ?>
@@ -120,10 +119,10 @@
 
                     contents_cart.push(
                         `
-                            <div class="card" id="`+id+`" onclick='buy_screen()' style="width: 230px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
-                                <img src="` + image + `" class="image" id="`+id+`" alt="Avatar" style="width:100%; height: 60%; onclick="buy_screen()">
-                                <h4 class="item_name" id="`+id+`" onclick='buy_screen()'> `+ name + ` </h4>
-                                <div class="values" id="`+id+`" onclick="buy_screen()" >
+                            <div class="card" id="`+id+`" style="width: 230px; height: auto; margin: 2rem; flex: none; name="card` + i + `">
+                                <img src="` + image + `" class="image" id="`+id+`" alt="Avatar" style="width:100%; height: 60%;>
+                                <h4 class="item_name" id="`+id+`"> `+ name + ` </h4>
+                                <div class="values" id="`+id+`" >
                                 <a class="oldPrice" id="`+id+`" > R$ ` + oldPrice + ` reais </a>
                                 <br>
                                 <span class="material-symbols-outlined" id="card_span_icon"> arrow_downward </span>

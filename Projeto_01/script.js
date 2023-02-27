@@ -60,7 +60,7 @@ async function buy_screen() {
     var clicked_item = e.target.id;
     for(var i = 0; i < obj_all_items.length; i++) {
         if(obj_all_items[i].id == clicked_item) {
-            var buy_screen_div = document.getElementById("buy_screen").innerHTML = `<div id="screen"  style="width: 50vw; height: 80vh; background-color: white; color: black; position: fixed; box-shadow: 0 0 0 99999px rgba(0, 0, 0, .8); z-index: 1; justify-content: center; left: 25vw; padding: 0; margin: 0;"></div> `;
+            var buy_screen_div = document.getElementById("buy_screen").innerHTML = `<div id="screen"  style="width: 50vw; height: 80vh; background-color: white; color: black; position: fixed; box-shadow: 0 0 0 99999px rgba(0, 0, 0, .8); z-index: 1; justify-content: center; left: 25vw; top: 10vh; padding: 0; margin: 0;"></div> `;
             var screen_location =  document.getElementById("screen");
 
             const itemsDiv_screen = document.getElementById("screen");
