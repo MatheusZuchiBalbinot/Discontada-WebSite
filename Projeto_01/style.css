@@ -16,10 +16,6 @@
         ;
 }
 
-
-/* CABEÇALHO */
-/* ONDE TÊM A LOGO, BARRA DE PESQUISA E OS ICONES */
-
 header {
     grid-area: header;
     display: grid;
@@ -151,13 +147,11 @@ header {
             color: white;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 1px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;        }
 
-    @media screen and (max-width:1048px) {
+    @media screen and (max-width: 648px) {
     
-        header {
-            grid-template-columns: 0;
-        }
         .header_n1 img {
-            display: none;
+            width: 10vw;
+            margin-top: 3vh;
         }
 
         .header_n2 {
@@ -165,7 +159,7 @@ header {
         }
 
         .header_n3 #welcome {
-            font-size: 1.5vh;
+            font-size: 2.5vw;
         }
 
         .header_n3 #header_n3_icon {
@@ -181,8 +175,6 @@ header {
             width: 7vw;
         }
     }
-
-/* PARTE PRINCIPAL DO PROJETO, ONDE SERÃO INSERIDOS OS CARDS E TEXTOS REFERENTES */
 
 
 
@@ -209,8 +201,6 @@ header {
     }
 
         .slide {
-            /* position: relative;
-            align-items: center; */
             display: flex;
             width: 100%;
             height: 100%;
@@ -223,7 +213,7 @@ header {
                 background-color: white(228, 215, 215);
                 color: red;
                 border-radius: 50%;
-                top: 40vh;
+                top: 45vh;
             }
 
             .slide > #next_button {
@@ -256,14 +246,13 @@ header {
 
         .slide > #next_button {
             position: absolute;
-            left: 82vw;
+            left: 83vw;
         }
     }
 
     body > div > div > h1, #promotions_title {
         font-size: 2.5vw;
         padding: 2vw;
-        margin: 2vw;
         font-family: 'Montserrat', sans-serif; 
     }
 
@@ -285,9 +274,7 @@ header {
     
     .card {
         position: relative;
-        background-color: rgb(247, 243, 243);
-        border-radius: 1vw;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);    
+        background-color: rgb(247, 243, 243); 
         transition: 0.3s;
         cursor: pointer;
         width: auto;
@@ -296,12 +283,11 @@ header {
     .card:hover {
         transition: 0.3s;
         background-color: rgb(193, 238, 217);
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);   
     }
-
     .card .sales_reviews {
         position: relative;
         margin-left: 0.3vw;
-        font-size: 0.9vw;
     }
 
     .card .oldPrice {
@@ -321,7 +307,6 @@ header {
         color: green;
         text-align: center;
         justify-content: center;
-        font-size: 0.9vw;
     }
 
     .card .discount_percentage {
@@ -331,41 +316,39 @@ header {
     }
 
     .card h4 {
-        font-size: 1vw;
         margin: 0.3vw;
     }
 
 
-    @media screen and (max-width:1048px) {
+    @media screen and (max-width:648px) {
         .card {
-          max-width: 60vw;
-          height: auto;
+          max-width: 50vw;
         }
         .card h4 {
-            font-size: 4vw;
+            font-size: 3vw;
         }
         .card .discount_percentage {
-            font-size: 4vw;
+            font-size: 3vw;
             top: 0vw;
         }
         .card .sales_reviews {
-            font-size: 4vw;
+            font-size: 3vw;
         }
     
         .card .oldPrice {
-            font-size: 4vw;
+            font-size: 3vw;
         }
     
         .card .price {
-            font-size: 4vw;
+            font-size: 3vw;
         }
     
         .card .values {
-            font-size: 4vw;
+            font-size: 3vw;
         }
 
         .card #card_span_icon {
-            font-size: 4vw;
+            font-size: 3vw;
         }
     }
 
@@ -409,7 +392,6 @@ header {
     }
     
     #screen .searched_price, .searched_discount_percentage, #card_span_icon {
-        font-size: 0.9vw;
         color: green;
     }
 
@@ -565,7 +547,6 @@ header {
         width: 100%;
         margin: 0 auto;
         padding: 0.5vw;
-        border-radius: 3vw;
         border: none;
         cursor: pointer;
         

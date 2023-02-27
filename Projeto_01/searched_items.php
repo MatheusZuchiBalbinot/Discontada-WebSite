@@ -77,13 +77,6 @@
     let obj = [];
 
     function searched_item_config() {
-        //Botei checked no lower_value;
-        //A página não atualiza sozinha quando eu faço uma pesquisa por padrão, tem que arrumar isso;
-        //Quando eu faço multiplas pesquisas sem atualizar a página ele buga;
-        
-        // console.log('a');
-        // obj = obj_item_array;
-
         if(document.getElementById('lower_value').checked == true) {
                 for(let i = 0; i < obj_item_array.length; i++) {
                 
@@ -135,7 +128,6 @@
         };
         var obj_storage = obj;
         sessionStorage.setItem("obj_storage", JSON.stringify(obj_storage));
-        // console.log(obj_storage);
     }
 
     function search_items() {
@@ -150,7 +142,6 @@
 
             if(main_items_dict.includes(item_array[i].id) != true) {
                 main_items_dict.push(item_array[i].id);
-                // console.log(main_items_dict); // Está correto, o problema é o ID que está sendo adicionado errado;
             }
 
             let id = obj_storage[i].id;

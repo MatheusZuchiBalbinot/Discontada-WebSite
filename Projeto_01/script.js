@@ -1,4 +1,3 @@
-// Eventos de botão e troca de Slider;
 const images_for_slider = {
     imagem1: "<img src='https://images-americanas.b2w.io/spacey/acom/2022/12/22/destaque-hs-62e9b494d4a4.png'>",
     imagem2: "<img src='https://images-americanas.b2w.io/spacey/acom/2023/01/16/verao-v2-01_hs-destaque-desk-05f67c136877.png'>",
@@ -29,7 +28,7 @@ function navigation_slider_next() {
         }
     }
 }
-// setInterval(navigation_slider_next, 5000);
+setInterval(navigation_slider_next, 5000);
 
 window.onload = function () {
     navigation_slider_previous();
@@ -39,9 +38,7 @@ const chosed_item_dict = [];
 const main_items_dict = [];
 
 var obj_item_array = JSON.parse(sessionStorage.obj_item_array);
-// console.log(obj_item_array);
 var obj_chosed_item = JSON.parse(sessionStorage.obj_chosed_item);
-// console.log(obj_chosed_item);
 
 function add_in_cart() {
     alert_add_item();
@@ -49,7 +46,6 @@ function add_in_cart() {
     sessionStorage.setItem("obj_chosed_item", JSON.stringify(obj_chosed_item));
     var obj_removed_cart = obj_chosed_item;
     sessionStorage.setItem("obj_removed_cart", JSON.stringify(obj_removed_cart));
-    // console.log(obj_chosed_item);
 }
 
 async function buy_screen() {
@@ -59,11 +55,9 @@ async function buy_screen() {
 
     var obj_all_items_dict = obj_all_items;
     sessionStorage.setItem("obj_all_items_dict", JSON.stringify(obj_all_items_dict));
-    // console.log(obj_all_items_dict);
 
     document.addEventListener('click', (e) => {
     var clicked_item = e.target.id;
-    // console.log(clicked_item);
     for(var i = 0; i < obj_all_items.length; i++) {
         if(obj_all_items[i].id == clicked_item) {
             var buy_screen_div = document.getElementById("buy_screen").innerHTML = `<div id="screen"  style="width: 50vw; height: 80vh; background-color: white; color: black; position: fixed; box-shadow: 0 0 0 99999px rgba(0, 0, 0, .8); z-index: 1; justify-content: center; left: 25vw; padding: 0; margin: 0;"></div> `;
@@ -77,7 +71,6 @@ async function buy_screen() {
 
             if(chosed_item_dict.includes(obj_all_items[i].id) != true) {
                 chosed_item_dict.push(obj_all_items[i].id);
-                // console.log(chosed_item_dict);
             }
 
             contents_screen.push(
@@ -142,7 +135,6 @@ async function card_items() {
 
         if(main_items_dict.includes(obj_promotions[i].id) != true) {
             main_items_dict.push(obj_promotions[i].id);
-            // console.log(main_items_dict);
         }
         
         let id_promotions = obj_promotions[i].id;
@@ -191,7 +183,6 @@ async function card_items() {
 
         if(main_items_dict.includes(obj_promotions[i].id) != true) {
             main_items_dict.push(obj_promotions[i].id);
-            // console.log(main_items_dict);
         }
 
         let id_best_sellers = obj_best_sellers[i].id;
